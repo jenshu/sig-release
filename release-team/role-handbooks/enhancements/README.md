@@ -414,6 +414,7 @@ flowchart TD
     - Update `Enhancement Status` field for this Enhancement in the Enhancement Tracking Board (`Tracked for code freeze` or `At risk for code freeze`)
     - If the code PRs are not tracked in the GitHub issue description, search [kubernetes/kubernetes](https://github.com/kubernetes/kubernetes) for the KEP number or KEP keywords to find the PRs and add them to the GitHub issue description. Validate that you found the correct code PRs with the KEP author. 
     - KEPs targeting `stable` for the release will now need to be marked as `implemented` after code PRs are merged.
+- Schedule a "Code Freeze Party" on the day of the code freeze. Invite all the Enhancement shadows, Emeritus Advisor, Release Team Lead and Lead Shadows (make participation optional for the invitees due to potential timezone differences.) Post the "Code Freeze Party" meeting details in the #sig-release and #release-enhancements Kubernetes Slack channels.
 - Start planning for the next release while assisting the Release Lead with anything relating to analytics or Public Relation planning of the release. Work with the Communications Lead to develop Release Highlights for the official Kubernetes blog post.
 
 **Note**: out-of-tree enhancements i.e. enhancements with label `tracked/out-of-tree` applied to them don't have their PRs inside [kubernetes/kubernetes](https://github.com/kubernetes/kubernetes) repository unlike other enhancements, therefore during enhancements-freeze and code-freeze they might not strictly comply with the tracking criteria.
@@ -422,8 +423,13 @@ flowchart TD
   - https://github.com/kubernetes/enhancements/issues/3476#issuecomment-1467208685
 
 #### Code Freeze Party 🎉
-- Schedule a "Code Freeze Party" on the day of the code freeze. Invite all the Enhancement shadows, Emeritus Advisor, Release Team Lead and Lead Shadows (make participation optional for the invitees due to potential timezone differences.) Post the "Code Freeze Party" meeting details in the #sig-release and #release-enhancements Kubernetes Slack channels.
-- During the "Code Freeze Party" meeting, review each of the tracked Enhancements to perform a final status assessment for code freeze readiness. If an Enhancement doesn't meet the requirements for the [code freeze](https://github.com/kubernetes/sig-release/blob/master/releases/release_phases.md#code-freeze), notify the author of the KEP by leaving a comment on the corresponding KEP issue. Use the [second code freeze communication template from below.](#code-freeze-templates) **Note**: It is helpful to delegate enhancements to review to shadows to help with the process.
+
+At the start of the "Code Freeze Party" meeting, send an announcement in Slack (#sig-release and #release-enhancements) that the meeting is starting.
+
+During the meeting:
+- Unhold (`/unhold`) the PR enforcing code freeze, allowing it to merge. This will prevent any PRs from merging unless they are in the current milestone.
+- For PRs that were already approved before the code freeze deadline, add them to the milestone so that they are able to merge. This [query](https://github.com/kubernetes/kubernetes/pulls?q=is%3Apr+is%3Aopen+label%3Aapproved+label%3Algtm+-label%3Ado-not-merge%2Fcherry-pick-not-approved+-label%3Ado-not-merge%2Fhold++-label%3Aneeds-rebase) can be used to find open PRs that are approved / ready to merge, and should be added to the milestone.
+- Review each of the tracked Enhancements to perform a final status assessment for code freeze readiness. If an Enhancement doesn't meet the requirements for the [code freeze](https://github.com/kubernetes/sig-release/blob/master/releases/release_phases.md#code-freeze), notify the author of the KEP by leaving a comment on the corresponding KEP issue. Use the [second code freeze communication template from below.](#code-freeze-templates) **Note**: It is helpful to delegate enhancements to review to shadows to help with the process.
 - Remove any enhancements that failed to merge their code by the Code freeze deadline.
   - Set their status in the sheet to `Removed from Milestone`.
   - Remove the milestone.
@@ -432,7 +438,10 @@ flowchart TD
     ```
 
   - Remove the milestone from all open `k/k` PRs related to the enhancement.
-- Any enhancements removed from the milestone will now require an exception. As exception requests come in, discuss each with the Release Lead (and Shadows) to arrive at an approve/reject decision.
+
+#### Post Code Freeze
+
+Any enhancements removed from the milestone will now require an exception. As exception requests come in, discuss each with the Release Lead (and Shadows) to arrive at an approve/reject decision.
   - Add a `/hold` label to `k/k` PRs associated with incoming exceptions to prevent from accidental merge.
   - Add incoming exception information to the previous created `exceptions.yaml` file (e.g., [PR #2753](https://github.com/kubernetes/sig-release/pull/2753), [PR #2593](https://github.com/kubernetes/sig-release/pull/2593)).
   - If an **Exception Request** for a previously removed Enhancement is approved by the Release Team (on the Exception Request email), update its **Enhancement Status** to `Tracked for enhancements freeze` on the Enhancement Tracking Board.
@@ -513,6 +522,7 @@ Here's where this enhancement currently stands:
 - [ ] KEP status is marked as `implementable` for `latest-milestone: { CURRENT_RELEASE }`.
 - [ ] KEP readme has up-to-date graduation criteria.
 - [ ] KEP has a production readiness review that has been completed and merged into k/enhancements. (For more information on the PRR process, check [here](https://github.com/kubernetes/community/blob/master/sig-architecture/production-readiness.md#submitting-a-kep-for-production-readiness-approval)).
+- [ ] There are no other outstanding (unmerged) PRs that modify the KEP readme or kep.yaml file.
 
 For this KEP, we would just need to update the following:
 - {insert list of action items}
@@ -540,6 +550,7 @@ Here’s where this enhancement currently stands:
 - [X] KEP readme has up-to-date graduation criteria.
 - [X] KEP has [submitted a production readiness review](https://github.com/kubernetes/community/blob/master/sig-architecture/production-readiness.md#submitting-a-kep-for-production-readiness-approval) request for approval and has a reviewer assigned.
 - [X] KEP has a production readiness review that has been completed and merged into k/enhancements. (For more information on the PRR process, check [here](https://github.com/kubernetes/community/blob/master/sig-architecture/production-readiness.md#submitting-a-kep-for-production-readiness-approval)).
+- [X] There are no other outstanding (unmerged) PRs that modify the KEP readme or kep.yaml file.
 
 With all the KEP requirements in place and merged into k/enhancements, this enhancement is all good for the upcoming enhancements freeze. 🚀
 

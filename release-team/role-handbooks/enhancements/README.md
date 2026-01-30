@@ -435,7 +435,7 @@ The PRR Freeze is a hard deadline happening a week before the Enhancements Freez
 - For opted-in Issues periodically (a few times a week, increasing to daily closer to the deadlines):
   - Ensure Issue is in the current milestone
   - Ensure Issue has correct labels (`stage/xxx` is accurate, etc.)
-  - Ensure Fields in the Enhancement Tracking Board are populated and accurate (Status, Stage, SIG, ...)
+  - Ensure the `SIG`, `Stage`, and `Enhancement Type` Fields in the Enhancement Tracking Board are populated and accurate
   - Evaluate if the enhancement satisfies all the [PRR Freeze requirements](/releases/release_phases.md#prr-freeze) for inclusion in the current release.
     - Comment on the Issue with a status updating using one of the [PRR Freeze communication templates](./communication-templates.md#prr-freeze-templates)
     - Update `Enhancement Status` field for this Enhancement in the Enhancement Tracking Board (`Tracked for PRR freeze` or `At risk for PRR freeze`)

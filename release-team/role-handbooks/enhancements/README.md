@@ -267,20 +267,24 @@ Notes :
 
 ##### Status
 
-The field `Status` tracks if the KEP has met all the criteria for inclusion in the current release.
-Refer to the [Enhancement Freeze Communications](./communication-templates.md#enhancement-freeze-templates) for detailed requirements.
+The field `Status` tracks if the KEP has met all the criteria for inclusion in the current release. The value of the column will change as we progress through the phases of the release cycle.
+
+Refer to [Release Phases](/releases/release_phases.md) for detailed requirements for each release phase.
 
 |                 Status | Description                                                                                                                                 |
 |-----------------------:|---------------------------------------------------------------------------------------------------------------------------------------------|
-|                Tracked For Enhancement Freeze | Enhancement has met all requirements for inclusion into current release.                                                                    |
-|                At Risk For Enhancement Freeze | Enhancement does not currently meet requirements for inclusion into current release.                                                        |
-|                Tracked For Code Freeze | Enhancement has met all code freeze requirements for inclusion into current release.                                                                    |
-|                At Risk For Code Freeze | Enhancement does not currently meet requirements for inclusion into current release because code freeze requirements have not been met. |
-|                Tracked For Docs Freeze | Enhancement has met all docs freeze requirements for inclusion into current release.                                                                    |
-|                At Risk For Docs Freeze | Enhancement does not currently meet requirements for inclusion into current release because docs freeze requirements have not been met. |
-|     Exception Required | Enhancement did not meet requirements by enhancement / code freeze and deadlines for requesting an [exception](#exceptions) has not passed. | 
+|                Tracked For PRR Freeze | Enhancement has met all PRR Freeze requirements for inclusion into current release.                                                                    |
+|                At Risk For PRR Freeze | Enhancement does not currently meet PRR Freeze requirements for inclusion into current release. 
+|                Tracked For Enhancement Freeze | Enhancement has met all Enhancements Freeze requirements for inclusion into current release.                                                                    |
+|                At Risk For Enhancement Freeze | Enhancement does not currently meet Enhancements Freeze requirements for inclusion into current release.                                                        |
+|                Tracked For Code Freeze | Enhancement has met all Code Freeze and Test Freeze requirements for inclusion into current release.                                                                    |
+|                At Risk For Code Freeze | Enhancement does not currently meet Code Freeze and Test Freeze requirements for inclusion into current release. |
+|                Tracked For Docs Freeze | Enhancement has met all Docs Freeze requirements for inclusion into current release.                                                                    |
+|                At Risk For Docs Freeze | Enhancement does not currently meet Docs Freeze requirements for inclusion into current release. |
+|     Exception Pending | Enhancement did not meet requirements for the current release phase, and an [exception](#exceptions) has been requested but not yet approved by the Release Team. | 
+|     Exception Approved | Enhancement did not meet requirements for the current release phase, and an [exception](#exceptions) has been requested and approved by the Release Team. | 
 |               Deferred | Enhancement has been bumped to a future release by owning SIG.                                                                              |
-| Removed From Milestone | Enhancement did not meet requirements by enhancement / code freeze for current release and an exception was not requested and/or approved.  |
+| Removed From Milestone | Enhancement did not meet requirements for one of the release phases and was removed from the milestone by the Release Team.  |
 
 Notes:
 

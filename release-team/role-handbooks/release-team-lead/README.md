@@ -90,16 +90,14 @@ In the event that a subteam loses a shadow, we might ask the paired Lead Shadow 
   - kubernetes/sig-release
     - releases/release-x.y
       - README.md (release schedule)
+      - links.md (source for `rel.k8s.io` short links)
       - release-notes-draft.md (consumed by the automated release process)
       - release_team.md
-- Short links are handled with [http://bit.ly](http://bit.ly). Each release should have the following documents (replacing XYY with the release version number minus dots):
-  - Retro doc: `http://bit.ly/k8sXYYretro`
-  - Release Schedule overview: `http://bit.ly/k8sXYY-release-info`
-  - Zoom link: `http://bit.ly/k8sXYY-zoom`
-  - Burndown/Meeting Minutes: `http://bit.ly/k8sXYY-burndown`
-  - Enhancements tracking spreadsheet: `http://bit.ly/k8sXYY-enhancement-tracking`
-  - Merged PRs with release notes: `http://bit.ly/k8sXYY-relnotes`
-  - Use the same conventions for additional documents
+- Short links are handled with `rel.k8s.io`. Each release directory should include a `links.md` file, such as the [v1.36 links.md](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.36/links.md). Add one section per destination, using a stable HTML anchor ID in the heading; the `rel.k8s.io` service uses those IDs to create release-specific short links.
+  - Use `https://rel.k8s.io/vXYY/<anchor>` for release-specific links, replacing `XYY` with the release version number minus dots. For example, v1.37 release meeting notes live at `https://rel.k8s.io/v137/releasemtg`.
+  - Common anchors include `releasemtg`, `enhancements`, `bugtriage`, `cisignal`, `retro`, and `contacts`.
+  - Keep shared links release-independent when appropriate, such as the release calendar at `https://rel.k8s.io/release-team-cal`.
+  - Update both the release `README.md` and any team communications to use the `rel.k8s.io` links after the matching `links.md` entries exist.
 - Burndown meetings happen at 10AM Pacific Time, and you invite the Kubernetes Release calendar (`agst.us_b07popf7t4avmt4km7eq5tk5ao@group.calendar.google.com`) to them. Make sure to use UTC time for the meeting.
 - Burndown communications happen on the [kubernetes-sig-release] mailing list.
 - Enhancement exceptions are to be reviewed by the owning SIG and brought to the Release Team for assessment of risk, especially across the project
@@ -211,7 +209,7 @@ The following playbook can be used for reference to structure the meeting. While
 ```txt
 Hi folks! The release meeting takes place 1 hour from now
 Links:
-* Agenda & Minutes: https://bit.ly/k8s125-releasemtg
+* Agenda & Minutes: https://rel.k8s.io/vXYY/releasemtg
 * Zoom Link: https://zoom.us/j/406805785?pwd=elQ1aVc0THZ, passcode 77777
 
 If anyone has anything they’d like to discuss, please add to the notes.

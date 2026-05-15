@@ -14,20 +14,11 @@ description: |
 
 * [This document](https://git.k8s.io/sig-release/releases/release-1.37/README.md)
 * [Release Team](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.37/release-team.md)
-* [Meeting Minutes](https://rel.k8s.io/v137/releasemtg) (members of [release-team@] receive meeting invites)
+* [Release Links](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.37/links.md)
 * [v1.37 Release Calendar](https://rel.k8s.io/release-team-cal)
+* [kubernetes/kubernetes v1.37 milestone](https://github.com/kubernetes/kubernetes/milestone/70)
 * Contact: [#sig-release](https://kubernetes.slack.com/archives/C2C40FMNF) on
   slack, [release-team](mailto:release-team@kubernetes.io) on e-mail
-* [Internal Contact Info](https://rel.k8s.io/v137/contacts) (accessible only to members of [release-team@])
-
-#### Tracking docs
-
-* [Enhancements Tracking Board](https://rel.k8s.io/v137/enhancements)
-* [Feature blog Tracking Board](https://rel.k8s.io/v137/feature-blogs)
-* [Bug Triage Tracking Board](https://rel.k8s.io/v137/bugtriage)
-* [CI Signal Project Board & Issue Tracking](https://rel.k8s.io/v137/cisignal)
-* [Retrospective Document](https://rel.k8s.io/v137/retro)
-* [kubernetes/kubernetes v1.37 milestone](https://github.com/kubernetes/kubernetes/milestone/70)
 
 #### Guides
 
@@ -39,10 +30,12 @@ description: |
 The v1.37 release cycle is proposed as follows:
 
 - **Monday 18th May 2026**: Week 1 — Release cycle begins
-- **Thursday 11th June 2026 (AoE) / Friday 12th June 2026, 12:00 UTC**: Week 4 — [Production Readiness Freeze][Production Readiness Freeze]
-- **Thursday 18th June 2026 (AoE) / Friday 19th June 2026, 12:00 UTC**: Week 5 — [Enhancements Freeze][Enhancements Freeze]
+- **Tuesday 9th June 2026 (AoE) / Wednesday 10th June 2026, 12:00 UTC**: Week 4 — [Production Readiness Freeze][Production Readiness Freeze]
+- **Tuesday 16th June 2026 (AoE) / Wednesday 17th June 2026, 12:00 UTC**: Week 5 — [Enhancements Freeze][Enhancements Freeze]
+- **Thursday 18th - Friday 19th June 2026**: Week 5 — KubeCon India
 - **Thursday 9th July 2026 (AoE) / Friday 10th July 2026, 12:00 UTC**: Week 8 — [Feature blog freeze][Feature blog freeze]
-- **Thursday 23rd July 2026 (AoE) / Friday 24th July 2026, 12:00 UTC**: Week 10 — [Code Freeze][Code Freeze] and [Test Freeze][Test Freeze]
+- **Wednesday 22nd July 2026 (AoE) / Thursday 23rd July 2026, 12:00 UTC**: Week 10 — [Code Freeze][Code Freeze] and [Test Freeze][Test Freeze]
+- **Wednesday 29th - Thursday 30th July 2026**: Week 11 — KubeCon Japan
 - **Wednesday 5th August 2026 (AoE) / Thursday 6th August 2026, 12:00 UTC**: Week 12 — [Docs Freeze][Docs Freeze]
 - **Wednesday 26th August 2026**: Week 15 — Kubernetes v1.37.0 released
 
@@ -62,8 +55,9 @@ The v1.37 release cycle is proposed as follows:
 | Start Release Notes Draft                          | Docs Lead                     | Wednesday 3rd June 2026                                               | week 3   |                                                                          |
 | Call for PRR and Enhancement Freeze [Exceptions]   | Lead                          | Thursday 4th June 2026                                                | week 3   |                                                                          |
 | v1.37.0-alpha.1 released                           | Branch Manager                | Wednesday 10th June 2026                                              | week 4   |                                                                          |
-| **Begin [Production Readiness Freeze]**            | Enhancements Lead             | Thursday 11th June 2026 (AoE) / Friday 12th June 2026, 12:00 UTC     | week 4   |                                                                          |
-| **Begin [Enhancements Freeze]**                    | Enhancements Lead             | Thursday 18th June 2026 (AoE) / Friday 19th June 2026, 12:00 UTC     | week 5   |                                                                          |
+| **Begin [Production Readiness Freeze]**            | Enhancements Lead             | Tuesday 9th June 2026 (AoE) / Wednesday 10th June 2026, 12:00 UTC    | week 4   |                                                                          |
+| **Begin [Enhancements Freeze]**                    | Enhancements Lead             | Tuesday 16th June 2026 (AoE) / Wednesday 17th June 2026, 12:00 UTC   | week 5   |                                                                          |
+| **KubeCon India**                                  |                               | Thursday 18th - Friday 19th June 2026                                 | week 5   |                                                                          |
 | v1.37.0-alpha.2 released                           | Branch Manager                | Wednesday 24th June 2026                                              | week 6   |                                                                          |
 | Brace Yourself, Code Freeze is Coming              | Comms / Release Signal        | Monday 29th June 2026                                                 | week 7   |                                                                          |
 | Docs deadline — Open placeholder PRs               | Docs Lead                     | Thursday 2nd July 2026 (AoE) / Friday 3rd July 2026, 12:00 UTC       | week 7   |                                                                          |
@@ -71,11 +65,12 @@ The v1.37 release cycle is proposed as follows:
 | Begin [Feature blog freeze] - Open placeholder PRs | Comms Lead                    | Thursday 9th July 2026 (AoE) / Friday 10th July 2026, 12:00 UTC      | week 8   |                                                                          |
 | Call for Code Freeze [Exceptions]                  | Lead                          | Monday 13th July 2026                                                 | week 9   |                                                                          |
 | v1.37.0-beta.0 released                            | Branch Manager                | Wednesday 15th July 2026                                              | week 9   |                                                                          |
-| **Begin [Code Freeze] and [Test Freeze]**          | Branch Manager                | Thursday 23rd July 2026 (AoE) / Friday 24th July 2026, 12:00 UTC     | week 10  |                                                                          |
+| **Begin [Code Freeze] and [Test Freeze]**          | Branch Manager                | Wednesday 22nd July 2026 (AoE) / Thursday 23rd July 2026, 12:00 UTC  | week 10  |                                                                          |
 | **Begin [Burndown]** (Meetings on Mon / Wed / Fri) | ALL                           | Monday 27th July 2026                                                 | week 11  |                                                                          |
 | Deprecations and Removals blog published           | Comms Lead                    | Monday 27th July 2026                                                 | week 11  |                                                                          |
 | Docs deadline — PRs ready for review               | Docs Lead                     | Tuesday 28th July 2026                                                | week 11  |                                                                          |
 | Release Highlights deadline                        | Comms Lead                    | Tuesday 28th July 2026                                                | week 11  |                                                                          |
+| **KubeCon Japan**                                  |                               | Wednesday 29th - Thursday 30th July 2026                              | week 11  |                                                                          |
 | Feature blogs ready to review                      | Enhancement Owner / SIG Leads | Monday 3rd August 2026                                                | week 12  |                                                                          |
 | **Burndown Meetings daily (Tue & Thu over Slack)** | ALL                           | Monday 3rd August 2026                                                | week 12  |                                                                          |
 | release-1.37 branch created                        | Branch Manager                | Wednesday 5th August 2026                                             | week 12  |                                                                          |

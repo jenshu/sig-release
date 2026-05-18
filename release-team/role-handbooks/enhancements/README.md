@@ -381,9 +381,10 @@ If there is continued unresponsiveness on issues, remove them from the milestone
 
 #### Set up tracking board
 
-- Clean up the old tracking board (if it has not already been done). See [Cleaning Up Previously Tracked Issues](./tracking-board.md#cleaning-up-previously-tracked-issues) for step-by-step instructions.
-- Create the Enhancements Tracking Board for the current release. See [Setting Up New Tracking Board](./tracking-board.md#setting-up-new-tracking-board) for instructions.
+- Make sure the previous tracking board has been cleaned up (this is usually done at the end of the previous cycle, but you should confirm again that everything is clean). See [End of Release Cleanup](./tracking-board.md#end-of-release-cleanup) for details.
+- Follow the steps in [Setting Up New Tracking Board](./tracking-board.md#setting-up-new-tracking-board) to create the tracking board for the current release.
 - Enable syncing of `lead-opted-in` issues to the new tracking board. See [Enabling Tracking Board Automation](./tracking-board.md#enabling-tracking-board-automation) for instructions.
+- Use the [Opt-in Reminders](./tracking-board.md#opt-in-reminders) message template to remind SIGs to add the `lead-opted-in` label in order for issues to get added to the tracking board.
 
 #### Update tracking board documentation
 
@@ -672,8 +673,8 @@ Any enhancements removed from the milestone will now require an exception. As ex
 
 #### Tracking board cleanup
 
-- Since cleaning up the tracking board before the start of a release is often a long and tedious process, it's a good idea to get a head start on it before the current cycle ends, rather than waiting for the next release cycle to begin.
-- See [Cleaning Up Previously Tracked Issues](./tracking-board.md#cleaning-up-previously-tracked-issues) for step-by-step instructions.
+- Since cleaning up the tracking board is often a long and tedious process, it's recommended to do the cleanup before the current cycle ends, rather than waiting for the next release cycle to begin.
+- See [End of Release Cleanup](./tracking-board.md#end-of-release-cleanup) for step-by-step instructions.
 - Optionally, work together with the next Enhancements Lead to perform this cleanup. 
 
 

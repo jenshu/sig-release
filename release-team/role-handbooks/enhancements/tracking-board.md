@@ -2,23 +2,27 @@
 
 ## Table of Contents
 
-- [Cleaning Up Previously Tracked Issues](#cleaning-up-previously-tracked-issues)
+- [End of Release Cleanup](#end-of-release-cleanup)
+- [Opt-in Reminders](#opt-in-reminders)
 - [Setting Up New Tracking Board](#setting-up-new-tracking-board)
 - [Enabling Tracking Board Automation](#enabling-tracking-board-automation)
 - [Disabling Tracking Board Automation](#disabling-tracking-board-automation)
 
-## Cleaning Up Previously Tracked Issues
+## End of Release Cleanup
 
-Before we set up the tracking board for the current release, it is important to clear out tracking labels from previous releases, so that we start from a clean slate. Enhancements must be explicitly opted into each release.
+> [!NOTE]
+> This section assumes that the current Enhancements Lead is cleaning up the tracking board at the end of the current release. If instead the cleanup is done at the start of the next release, the template wording should be adjusted accordingly.
+
+Before we set up the tracking board for the next release, it is important to clear out tracking labels from the current release, so that we start from a clean slate. Enhancements must be explicitly opted into each release.
 
 In the message templates below, make sure to replace:
+- `{next release}` with the next release version, e.g. `v1.37`
 - `{current release}` with the current release version, e.g. `v1.36`
-- `{previous release}` with the previous release version, e.g. `v1.35`
 - `{enhancement owner}` with the GitHub handles of the KEP author(s)
 
 ### Part 1: Clearing the lead-opted-in label
 
-Before setting up automation for the new board, we need to make sure the `lead-opted-in` label is removed from issues from all old milestones, so they don't get automatically added to the new board. Use this search to find all issues that have the `lead-opted-in` label and are NOT in the current milestone: `https://github.com/kubernetes/enhancements/issues?q=is%3Aissue%20label%3Alead-opted-in%20-milestone%3A{current release}`
+Before setting up automation for the new board, we need to make sure the `lead-opted-in` label is removed from issues from all old milestones, so they don't get automatically added to the new board. Use this search to find all issues that have the `lead-opted-in` label and are NOT already in the next milestone: `https://github.com/kubernetes/enhancements/issues?q=is%3Aissue%20label%3Alead-opted-in%20-milestone%3A{next release}`
 
 Here are the different cases and how to handle them:
 
@@ -29,16 +33,16 @@ Here are the different cases and how to handle them:
 /remove-label tracked/no
 ```
 
-- If the issue is open AND the `lead-opted-in` was added recently (i.e. since the end of the last release), it's possible that the KEP author / SIG wishes to work on it this cycle, but hasn't yet added/updated the milestone. In this case, we can add the milestone for them. Example message template:
+- If the issue is open AND the `lead-opted-in` was added recently, it's possible that the KEP author / SIG wishes to work on it next cycle, but hasn't yet added/updated the milestone. In this case, we can add the milestone for them. Example message template:
 ```
 Hi {enhancement owner} 👋, {current release} Enhancements Lead here.
 
-It looks like this enhancement will be worked on as part of {current release}, so I've set the milestone accordingly. If this isn't accurate, please let me know!
+It looks like this enhancement will be worked on as part of {next release}, so I've set the milestone accordingly. If this isn't accurate, please let me know!
 
-/milestone {current release}
+/milestone {next release}
 ```
 
-- If the KEP has successfully graduated to `stable` (we can confirm this by checking if it was tracked as `stable` in the previous milestone, and not `Removed from Milestone` or `Deferred`), we need to make sure that the `status` in `kep.yaml` has been updated to `implemented` and then close the issue (no need to wait until feature gates are removed). If `kep.yaml` is already updated to `implemented`, we can just comment and close the issue. Example message template:
+- If the KEP has successfully graduated to `stable` (we can confirm this by checking if it was tracked as `stable` in the current milestone, and not `Removed from Milestone` or `Deferred`), we need to make sure that the `status` in `kep.yaml` has been updated to `implemented` and then close the issue (no need to wait until feature gates are removed). If `kep.yaml` is already updated to `implemented`, we can just comment and close the issue. Example message template:
 ```
 Hi {enhancement owner} 👋, {current release} Enhancements Lead here,
 
@@ -64,9 +68,9 @@ Thanks!
 ```
 Hi {enhancement owner} 👋, {current release} Enhancements Lead here.
 
-I am closing the {previous release} milestone now.
+We are nearing the close of the {current release} release. As part of cleanup, we are removing the `lead-opted-in` and `tracked/*` labels and milestone to prepare for the next cycle.
 
-If you'd like to work on this enhancement in {current release}, please have the SIG lead opt in by adding the `lead-opted-in` label, which ensures it gets added to the tracking board. Also, please set the milestone to {current release} using `/milestone {current release}`.
+If you would like to work on this enhancement in {next release}, please have the SIG lead opt in by adding the `lead-opted-in` label and setting the milestone using `/milestone {next release}`, which will ensure it gets added to the tracking board for next release.
 
 Thanks!
 
@@ -78,15 +82,25 @@ Thanks!
 
 ### Part 2: Clearing the tracked labels
 
-The `tracked/yes` and `tracked/no` labels indicate whether a KEP is actively being tracked by the Release Team. At the beginning of the release, we should clear these out so we can start from a clean slate. Most of them would have been removed by previous steps above, but double check if we missed any, by going through any issues returned by this query https://github.com/kubernetes/enhancements/issues?q=is%3Aissue%20(label%3Atracked%2Fyes%20OR%20label%3Atracked%2Fno) and removing the label as appropriate:
+The `tracked/yes` and `tracked/no` labels indicate whether a KEP is actively being tracked by the Release Team. Before the beginning of the next release, they should all be cleared out so we can start from a clean slate. Most of them would have been removed by previous steps above, but double check if we missed any, by going through any issues returned by this query https://github.com/kubernetes/enhancements/issues?q=is%3Aissue%20(label%3Atracked%2Fyes%20OR%20label%3Atracked%2Fno) and removing the label as appropriate:
 ```
 /remove-label tracked/yes
 /remove-label tracked/no
 ```
 
-### Part 3: Opt-in reminders
+### Part 3: Verify cleanup
 
-If there are any KEPs with the new milestone `{current release}` but don't have `lead-opted-in`, then we need to remind them to opt in if they plan to work on it this cycle. For any results returned by this query `https://github.com/kubernetes/enhancements/issues?q=is%3Aissue%20state%3Aopen%20-label%3Alead-opted-in%20milestone%3A{current release}`, post a message like:
+Make sure these queries both return empty now:
+- There should be no opted-in issues in any milestone other than the next release: `https://github.com/kubernetes/enhancements/issues?q=is%3Aissue%20label%3Alead-opted-in%20-milestone%3A{next release}`
+- There should be no issues with tracking labels: https://github.com/kubernetes/enhancements/issues?q=is%3Aissue%20(label%3Atracked%2Fyes%20OR%20label%3Atracked%2Fno)
+
+If so, then cleanup is done!
+
+## Opt-in Reminders
+
+This step should be performed by the new Enhancements Lead at the beginning of the release. Check whether there are any KEPs in the `{current release}` milestone but don't yet have the `lead-opted-in` label. It's possible that the SIG plans to work on it this cycle but forgot to opt in.
+
+For any results returned by this query `https://github.com/kubernetes/enhancements/issues?q=is%3Aissue%20state%3Aopen%20-label%3Alead-opted-in%20milestone%3A{current release}`, post a message like:
 ```
 Hi {enhancement owner} 👋, {current release} Enhancements Lead here.
 
@@ -95,18 +109,9 @@ It looks like this enhancement has been added to the {current release} milestone
 Thanks!
 ```
 
-### Part 4: Verify cleanup
-
-Make sure these queries both return empty now:
-- `https://github.com/kubernetes/enhancements/issues?q=is%3Aissue%20label%3Alead-opted-in%20-milestone%3A{current release}`
-- https://github.com/kubernetes/enhancements/issues?q=is%3Aissue%20(label%3Atracked%2Fyes%20OR%20label%3Atracked%2Fno)
-
- If so, then cleanup is done and we can start setting up the new board!
-
-
 ## Setting Up New Tracking Board
 
-Important: Make sure you have gone through the steps to [clean up the previously tracked issues](#cleaning-up-previously-tracked-issues) above, before setting up the new board.
+Important: Make sure either you or the previous Enhancements Lead has completed the [end of release cleanup](#end-of-release-cleanup) steps above, before setting up the new board.
 
 ### Option 1: Copying Previous Board (Preferred)
 
@@ -151,10 +156,9 @@ While it's generally easier / preferable to use [Option 1](#option-1-copying-pre
   - Click `...` -> `Workflows`
   - For each workflow that is enabled (has a green circle next to it), click the workflow and slide the toggle to 'Off'
 
-
 ## Enabling Tracking Board Automation
 
-Important: Make sure you have gone through the steps to [clean up the previously tracked issues](#cleaning-up-previously-tracked-issues) and [set up the new tracking board](#setting-up-new-tracking-board) above, before setting up automation.
+Important: Make sure you have completed the steps to [set up the new tracking board](#setting-up-new-tracking-board) above, before setting up automation.
 
 In order for KEPs to appear on the new tracking board, we need to open a pull request in [k/test-infra](https://github.com/kubernetes/test-infra) that enables the automatic syncing of issues with the `lead-opted-in` label to the new tracking board. The PR must contain the following changes:
   - Update the [`GITHUB_PROJECT_BETA_NUMBER`](https://github.com/kubernetes/test-infra/blob/3de59f96b327c87c6d23a7308abc785268931707/config/jobs/kubernetes/sig-k8s-infra/trusted/sig-release-release-team-jobs/release-team-periodics.yaml#L20-L21) variable used by automation to identify the enhancements tracking board for the current release.

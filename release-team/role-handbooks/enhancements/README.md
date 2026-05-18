@@ -226,7 +226,7 @@ Please contact SIG Release on Slack if there is any uncertainty regarding whethe
 
 ### Working with the Enhancement Tracking Board
 
-The Enhancements Tracking Board is used by the release-enhancements, release-docs, and release-comms teams.
+The Enhancements Tracking Board is used by the release-enhancements, release-docs, release-comms, and PRR teams.
 Information in this document will be focused on how the Enhancements team should interact with the project board.
 
 #### Enhancements View
@@ -387,8 +387,6 @@ If there is continued unresponsiveness on issues, remove them from the milestone
 
 #### Update tracking board documentation
 
-Note: the Release Lead sometimes opens a single PR with the updates for all the subteams; sync with them to avoid duplicate work.
-
 - Make a pull request to [k/sig-release](https://github.com/kubernetes/sig-release) to add the tracking board link to the current release's `links.md` file.
   - Example PR from v1.36: https://github.com/kubernetes/sig-release/pull/2939
 - Once the `links.md` PR is merged, create a `rel.k8s.io` shortlink in the format `https://rel.k8s.io/vXYY/enhancements` which redirects to `#enhancements` on the `links.md` page.
@@ -420,18 +418,26 @@ Note: the Release Lead sometimes opens a single PR with the updates for all the 
 
 #### Meeting update rotation
 
-- Create a Google Sheet (private to the Enhancements Lead and Shadows) where the shadows can sign up to give updates at the weekly Release Team meetings.
-  - Example [meeting update rotation template](https://docs.google.com/document/d/1jfU34qJTiCdsE4yVO4BBJw763TDCLkrJ10QPmmHzwLw/edit?tab=t.0#heading=h.xrn657qem90v)
-- Make sure to include both APAC and EMEA meetings.
-- Make sure to also include the Monday/Friday burndown meetings which begin after Code Freeze.
+The Enhancements Lead and Shadows take turns giving updates at each Release Team meeting. See [Release Team Meeting Updates](#release-team-meeting-updates) for details.
+
+- Create a Google Doc (private to the Enhancements Lead and Shadows) where the shadows can sign up for the meeting rotation.
+  - Make sure to include both APAC and EMEA meetings.
+  - Make sure to also include the Monday/Friday burndown meetings which begin after Code Freeze.
+  - Here is an example [meeting update rotation template](./meeting-rotation-template.md) that can be used.
+    - Open the template, select all text, and copy
+    - Open the Google Doc and select Edit -> Paste from Markdown
+    - Replace the placeholders (`{ }`) with the appropriate values
 
 #### SIG outreach
 
-- Near the beginning of the release cycle, we reach out to each SIG reminding them of the enhancements-related deadlines.
-- Create a Google Sheet (private to the Enhancements Lead and Shadows) to track who will reach out to each SIG.
-  - Example [SIG outreach template](https://docs.google.com/document/d/1jfU34qJTiCdsE4yVO4BBJw763TDCLkrJ10QPmmHzwLw/edit?tab=t.601lhuiio9bs#heading=h.h2pqt5op8vqc)
-- Reach out to each [SIG](https://github.com/kubernetes/community/blob/master/sig-list.md) in their respective Slack channel, tagging one or more chairs or technical leads to communicate the Enhancements statuses. See the example [SIG Outreach communication templates](./communication-templates.md#sig-outreach-templates).
-- `sig-k8s-infra` can be skipped, as they have previously requested to be excluded from outreach.
+At the beginning of the release cycle, we reach out to each SIG reminding them to submit enhancements ahead of the deadlines.
+
+- Create a Google Doc (private to the Enhancements Lead and Shadows) to track who will reach out to each SIG.
+  - Here is an example [SIG outreach assignment template](./sig-outreach-assignment-template.md) that can be used.
+    - Open the template, select all text, and copy
+    - Open the Google Doc and select Edit -> Paste from Markdown
+    - Replace the placeholders (`{ }`) with the appropriate values
+    - Follow the instructions from the template
 
 #### Call for enhancements
 

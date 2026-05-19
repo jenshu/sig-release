@@ -6,7 +6,6 @@ The freeze dates/times for the current release can be found at `https://github.c
 
 ## Table of Contents
 
-- [SIG Outreach Templates](#sig-outreach-templates)
 - [PRR Freeze Templates](#prr-freeze-templates)
 - [PRR Freeze Party Templates](#prr-freeze-party-templates)
 - [Enhancements Freeze Templates](#enhancements-freeze-templates)
@@ -14,37 +13,9 @@ The freeze dates/times for the current release can be found at `https://github.c
 - [Code Freeze Templates](#code-freeze-templates)
 - [Code Freeze Party Templates](#code-freeze-party-templates)
 
-## SIG Outreach Templates
-
-Use the `KEPs by SIG` insight view on the tracking board (which can be accessed from `https://github.com/orgs/kubernetes/projects/<id>/insights`) to see how many enhancements each SIG has currently opted into the release.
-
-For SIGs which have already opted in at least one enhancement:
-
-```markdown
-Hello #sig-{ SIG_NAME } 👋 { CURRENT_RELEASE } Enhancements team here.
-
-Just checking in as we approach PRR freeze at { PRR_FREEZE_DATETIME } and enhancements freeze at { ENHANCEMENTS_FREEZE_DATETIME }.
-
-Your SIG has submitted `{ X }` enhancements for the { CURRENT_RELEASE } cycle, and { Y } enhancements are currently `At risk for PRR freeze`.
-
-Refer to the [announcement here]({link to announcement for current release cycle}) for the list of review requirements. If your SIG still plans to submit more enhancements, follow the instructions in the announcement so the enhancements team can begin tracking. Please plan to make KEP updates to meet all the requirements before the above freeze deadlines. Please reach out to [#release-enhancements](https://kubernetes.slack.com/archives/C02BY55KV7E) if you have any questions.
-```
-
-For SIGs which have not yet opted in any enhancements:
-
-```markdown
-Hello #sig-{ SIG_NAME } 👋 { CURRENT_RELEASE } Enhancements team here.
-
-Just checking in as we approach PRR freeze at { PRR_FREEZE_DATETIME } and enhancements freeze at { ENHANCEMENTS_FREEZE_DATETIME }.
-
-Your SIG has not submitted any enhancements for the { CURRENT_RELEASE } cycle.
-
-If your SIG still plans to submit an enhancement, follow the [instructions here]({link to announcement for current release cycle}) so the enhancements team can begin tracking. If your SIG is not planning to submit an enhancement, please reply to this message to confirm. Please reach out to [#release-enhancements](https://kubernetes.slack.com/archives/C02BY55KV7E) if you have any questions.
-```
-
 ## PRR Freeze Templates
 
-If the enhancement **does not** meet the PRR Freeze criteria for inclusion in the current release, add an issue comment using this template:
+❌ If the enhancement **does not** meet the PRR Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown
 Hello {enhancement owner} 👋, {current release} Enhancements team here.
@@ -71,7 +42,9 @@ If you anticipate missing PRR freeze, you can file an [exception request](https:
 
 Then make sure the status of the enhancement is set to `At risk for PRR freeze`.
 
-If the enhancement **does** meet the PRR Freeze criteria for inclusion in the current release, add an issue comment using this template:
+---
+
+✅ If the enhancement **does** meet the PRR Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown
 Hello {enhancement owner} 👋, {current release} Enhancements team here.
@@ -99,7 +72,7 @@ Then make sure the status of the enhancement is set to `Tracked for PRR freeze`.
 
 These templates should be used during the PRR Freeze Party for KEPs that are `At risk for PRR freeze`.
 
-If the enhancement **does not** meet the PRR Freeze criteria for inclusion in the current release, add an issue comment using this template:
+❌ If the enhancement **does not** meet the PRR Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown
 Hello {enhancement owner} 👋, {current release} Enhancements team here.
@@ -114,7 +87,9 @@ If you still wish to progress this enhancement in {current release}, please file
 
 Then make sure the status of the enhancement is set to `Removed from Milestone`. 
 
-If the enhancement **does** meet the PRR Freeze criteria for inclusion in the current release, add an issue comment using this template:
+---
+
+✅ If the enhancement **does** meet the PRR Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown
 Hello {enhancement owner} 👋, {current release} Enhancements team here.
@@ -128,7 +103,7 @@ Then make sure the status of the enhancement is set to `Tracked for PRR freeze`.
 
 ## Enhancements Freeze Templates
 
-If the enhancement **does not** meet the Enhancements Freeze criteria for inclusion in the current release, add an issue comment using this template:
+❌ If the enhancement **does not** meet the Enhancements Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown
 Hello {enhancement owner} 👋, {current release} Enhancements team here.
@@ -155,7 +130,9 @@ If you anticipate missing enhancements freeze, you can file an [exception reques
 
 Then make sure the status of the enhancement is set to `At risk for enhancements freeze`.
 
-If the enhancement **does** meet the Enhancements Freeze criteria for inclusion in the current release, add an issue comment using this template:
+---
+
+✅ If the enhancement **does** meet the Enhancements Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown
 Hello {enhancement owner} 👋, {current release} Enhancements team here.
@@ -186,7 +163,7 @@ Then make sure the status of the enhancement is set to `Tracked for enhancements
 
 These templates should be used during the Enhancements Freeze Party for KEPs that are `At risk for enhancements freeze`.
 
-If the enhancement **does not** meet the Enhancements Freeze criteria for inclusion in the current release, add an issue comment using this template:
+❌ If the enhancement **does not** meet the Enhancements Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown 
 Hello {enhancement owner} 👋, {current release} Enhancements team here.
@@ -202,7 +179,9 @@ If you still wish to progress this enhancement in {current release}, please file
 
 Then make sure the status of the enhancement is set to `Removed from Milestone`.
 
-If the enhancement **does** meet the Enhancements Freeze criteria for inclusion in the current release, add an issue comment using this template:
+---
+
+✅ If the enhancement **does** meet the Enhancements Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown
 Hello {enhancement owner} 👋, {current release} Enhancements team here.
@@ -216,9 +195,10 @@ Then make sure the status of the enhancement is set to `Tracked for enhancements
 
 ## Code Freeze Templates
 
-> **Note**: Refer to the [What Changes Require Tracking](README.md#what-changes-require-tracking) section for guidance on whether your KEP needs to be tracked by the Release Team and marked as `Tracked for code freeze`.
+> [!NOTE]
+> Refer to the [What Changes Require Tracking](README.md#what-changes-require-tracking) section for guidance on whether your KEP needs to be tracked by the Release Team and marked as `Tracked for code freeze`.
 
-If the enhancement **does not** meet the Code Freeze and Test Freeze criteria for inclusion in the current release, add an issue comment using this template:
+❌ If the enhancement **does not** meet the Code Freeze and Test Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown
 Hey again {enhancement owner} 👋, {current release} Enhancements team here,
@@ -244,7 +224,9 @@ If you anticipate missing code freeze, you can file an [exception request](https
 
 Then make sure the status of the enhancement is set to `At risk for code freeze`.
 
-If the enhancement **does** meet the Code Freeze and Test Freeze criteria for inclusion in the current release, add an issue comment using this template:
+---
+
+✅ If the enhancement **does** meet the Code Freeze and Test Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown
 Hey again {enhancement owner} 👋, {current release} Enhancements team here,
@@ -276,7 +258,7 @@ Then make sure the status of the enhancement is set to `Tracked for code freeze`
 
 These templates should be used during the Code Freeze Party for KEPs that are `At risk for code freeze`.
 
-If the enhancement **does not** meet the Code Freeze and Test Freeze criteria for inclusion in the current release, add an issue comment using this template:
+❌ If the enhancement **does not** meet the Code Freeze and Test Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown 
 Hello {enhancement owner} 👋, {current release} Enhancements team here,
@@ -295,7 +277,9 @@ If you still wish to progress this enhancement in {current release}, please file
 
 Then make sure the status of the enhancement is set to `Removed from Milestone`.
 
-If the enhancement **does** meet the Code Freeze and Test Freeze criteria for inclusion in the current release, add an issue comment using this template:
+---
+
+✅ If the enhancement **does** meet the Code Freeze and Test Freeze criteria for inclusion in the current release, add an issue comment using this template:
 
 ```markdown
 Hello {enhancement owner} 👋, {current release} Enhancements team here.

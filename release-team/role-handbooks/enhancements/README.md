@@ -14,9 +14,9 @@
   - [Slack](#slack)
 - [Process](#process)
   - [Standards](#standards)
-  - [Enhancement KEP Status](#enhancement-kep-status)
   - [PRR Reviews](#prr-reviews)
     - [PRR Freeze](#prr-freeze)
+  - [Enhancement KEP Status](#enhancement-kep-status)
   - [What Changes Require Tracking](#what-changes-require-tracking)
   - [Working with the Enhancement Tracking Board](#working-with-the-enhancement-tracking-board)
   - [Release Team Meeting Updates](#release-team-meeting-updates)
@@ -195,9 +195,9 @@ stable:
 
 #### PRR Freeze
 
-See [PRR Freeze](https://github.com/kubernetes/sig-release/blob/master/releases/release_phases.md#prr-freeze) for the definition and deadline details.
+See [PRR Freeze](/releases/release_phases.md#prr-freeze) for the definition and deadline details.
 
-#### Enhancement KEP Status
+### Enhancement KEP Status
 
 For each Enhancement KEP, the Enhancement team needs to verify that the `status` set in the KEP is one of `provisional`, `implementable`, `implemented`, `deferred`, `rejected`, `withdrawn`, or `replaced`.
 The `status` must follow the criteria:
@@ -559,7 +559,7 @@ Read https://github.com/kubernetes/sig-release/blob/master/releases/release_phas
 
 #### Understanding Test Freeze
 
-Test freeze occurs simultaneously with [Code Freeze](https://github.com/kubernetes/sig-release/blob/master/releases/release_phases.md#code-freeze). For the Enhancements team, this means:
+[Test Freeze](/releases/release_phases.md#test-freeze) occurs simultaneously with [Code Freeze](/releases/release_phases.md#code-freeze). For the Enhancements team, this means:
 
 - **What it means**: No new tests may be changed or promoted to Conformance unless there are release-blocking or other exceptional reasons
 - **For enhancements**: All test PRs related to tracked enhancements must be in a merge-ready state (with `approved` and `lgtm` labels) by the test freeze deadline

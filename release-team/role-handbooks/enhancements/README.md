@@ -2,6 +2,7 @@
 
 ## Table of Contents
 
+<!-- This only shows the top 2 levels of headings (## and ###) to prevent the TOC from getting too large. -->
 - [Overview](#overview)
 - [Responsibilities](#responsibilities)
 - [Prerequisites](#prerequisites)

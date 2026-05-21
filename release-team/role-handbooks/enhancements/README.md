@@ -57,7 +57,7 @@ An Enhancements Lead holds the following responsibilities:
   - Engage with media analysts during the embargo period to discuss the release themes
   - CNCF Kubernetes Release webinar (with the Release Lead and Communications Lead)
   - Identify potential contributors for the “5 Days of Kubernetes” blog series
-- Identify candidates to assume the Enhancements Lead role (according to the [Release Team selection process][rt-selection]) in the following release cycle
+- Identify candidates to assume the Enhancements Lead role (according to the [Release Team selection process](/release-team/release-team-selection.md)) in the following release cycle
   - Chose Enhancement shadows whom you believe would be a good fit for succession and help mentor them throughout the release cycle
 
 ## Prerequisites
@@ -299,7 +299,7 @@ Notes:
 
 As part of the Enhancements team’s responsibilities, this step helps ensure that user-facing feature changes are not merged without being properly tracked via a KEP.
 
-#### When to check for Untracked feature work
+#### When to check for untracked feature work
 
 - Before **Code Freeze**
 - Especially useful in active release cycles where many `kind/feature` PRs are being merged.
@@ -308,16 +308,12 @@ As part of the Enhancements team’s responsibilities, this step helps ensure th
 
 Use the GitHub search below to list PRs:
 - Labeled `kind/feature`
-- Closed (i.e., merged or declined)
+- Merged
 - Targeting the **current release milestone**
 
-[View feature PRs merged in v1.36](https://github.com/kubernetes/kubernetes/pulls?q=is%3Apr+milestone%3Av1.36+is%3Aclosed+sort%3Acreated-asc+label%3Akind%2Ffeature)
-
-```text
-https://github.com/kubernetes/kubernetes/pulls?q=is%3Apr+milestone%3Av1.36+is%3Aclosed+sort%3Acreated-asc+label%3Akind%2Ffeature
-```
-> [!NOTE]
-> Be sure to update the milestone (`v1.36`) in the query to the current release.
+Be sure to update the `{milestone}` in the query to the current release:
+- `https://github.com/kubernetes/kubernetes/pulls?q=is%3Apr+milestone%3A{milestone}+is%3Amerged+sort%3Acreated-asc+label%3Akind%2Ffeature`
+- Example query for v1.36: https://github.com/kubernetes/kubernetes/pulls?q=is%3Apr+milestone%3Av1.36+is%3Amerged+sort%3Acreated-asc+label%3Akind%2Ffeature
 
 #### Why check for untracked user-facing features
 

@@ -1,0 +1,14 @@
+# Kubernetes v1.37 Release Team
+
+| **Team/Role**     | **Lead Name** (**GitHub / Slack ID**)                                                                     | **Shadow Name(s) (GitHub / Slack ID)**                                                                                                                   |
+|-------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release Team Lead | Dipesh Rawat ([@dipesh-rawat](https://github.com/dipesh-rawat) / Slack: `@Dipesh`)                       | Agustina Barbetta ([@aibarbetta](https://github.com/aibarbetta) / Slack: `@aibarbetta`), Prajyot Parab ([@Prajyot-Parab](https://github.com/Prajyot-Parab) / Slack: `@Prajyot Parab`), Rayan Das ([@rayandas](https://github.com/rayandas) / Slack: `@rayandas`), Sayan Chowdhury ([@sayanchowdhury](https://github.com/sayanchowdhury) / Slack: `@yudocaa`) |
+| Enhancements      | Subhasmita Swain ([@whtssub](https://github.com/whtssub) / Slack: `@subhasmita`)                         |                                                                                                                                                            |
+| Communications    | Swathi Rao ([@SwathiR03](https://github.com/SwathiR03) / Slack: `@Swathi Rao`)                           |                                                                                                                                                            |
+| Release Signal    | Muhammad Adil Ghaffar ([@adilGhaffarDev](https://github.com/adilGhaffarDev) / Slack: `@muhammad adil ghaffar`) |                                                                                                                                                            |
+| Docs              | Tushar Mittal ([@kernel-kun](https://github.com/kernel-kun) / Slack: `@kernel-kun`)                       |                                                                                                                                                            |
+| Branch Manager    | Agustina Barbetta ([@aibarbetta](https://github.com/aibarbetta) / Slack: `@aibarbetta`)                   |                                                                                                                                                            |
+
+Review the [Release Managers page](https://github.com/kubernetes/website/blob/main/content/en/releases/release-managers.md) for up-to-date contact information on Release Engineering personnel.
+
+The schedule for all patch releases can be found at [Patch Releases page](https://github.com/kubernetes/website/blob/main/content/en/releases/patch-releases.md). It will be updated to include v1.37, once the v1.37 release cycle concludes.

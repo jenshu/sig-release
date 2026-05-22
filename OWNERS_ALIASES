@@ -26,19 +26,20 @@ aliases:
 
   # Release Team subproject
   release-team-approvers:
+    - fsmunoz # Release Team Subproject Lead
     - katcosgrove # Release Team Subproject Lead
   release-team-lead:
-    - rytswd # v1.36
+    - dipesh-rawat # v1.37
   release-team-lead-shadows:
-    - aibarbetta # v1.36
-    - dipesh-rawat # v1.36
-    - jenshu # v1.36
-    - rayandas # v1.36
+    - aibarbetta # v1.37
+    - Prajyot-Parab # v1.37
+    - rayandas # v1.37
+    - sayanchowdhury # v1.37
   communications-subteam-approvers:
-    - chadmcrowell # v1.36
+    - SwathiR03 # v1.37
   docs-subteam-approvers:
-    - sayanchowdhury # v1.36
+    - kernel-kun # v1.37
   enhancements-subteam-approvers:
-    - jmickey #v1.36
+    - whtssub # v1.37
   release-signal-subteam-approvers:
-    - Prajyot-Parab # v1.36
+    - adilGhaffarDev # v1.37

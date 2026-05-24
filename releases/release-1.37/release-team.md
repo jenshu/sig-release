@@ -7,7 +7,7 @@
 | Communications    | Swathi Rao ([@SwathiR03](https://github.com/SwathiR03) / Slack: `@Swathi Rao`)                           |                                                                                                                                                            |
 | Release Signal    | Muhammad Adil Ghaffar ([@adilGhaffarDev](https://github.com/adilGhaffarDev) / Slack: `@muhammad adil ghaffar`) |                                                                                                                                                            |
 | Docs              | Tushar Mittal ([@kernel-kun](https://github.com/kernel-kun) / Slack: `@kernel-kun`)                       |                                                                                                                                                            |
-| Branch Manager    | Agustina Barbetta ([@aibarbetta](https://github.com/aibarbetta) / Slack: `@aibarbetta`)                   |                                                                                                                                                            |
+| Branch Manager    | Agustina Barbetta ([@aibarbetta](https://github.com/aibarbetta) / Slack: `@aibarbetta`)                   | Jenny Shu ([@jenshu](https://github.com/jenshu) / Slack: `@Jenny Shu`), Ryota Sawada ([@rytswd](https://github.com/rytswd) / Slack: `@Ryota`)             |
 
 Review the [Release Managers page](https://github.com/kubernetes/website/blob/main/content/en/releases/release-managers.md) for up-to-date contact information on Release Engineering personnel.
 

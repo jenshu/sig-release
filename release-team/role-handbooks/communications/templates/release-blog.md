@@ -68,6 +68,8 @@ author: >
   [Kubernetes v1.XX Release Team](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.XX/release-team.md)
 release_announcement:
   minor_version: "1.XX"
+  themes:
+    - "Release CodeName 1"
 ---
 ---
 

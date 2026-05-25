@@ -108,10 +108,13 @@ The release lead will drive the content for the release theme and logo.
 - remove the `draft: true` parameter
 - ensure the date parameter is set to the release date
 - add the `release_announcement` parameter:
+- add the `themes` parameter with the release code name, if applicable
 
   ```yaml
   release_announcement:
     minor_version: "<major>.<minor>"
+    themes:
+      - "Release CodeName 1"
   ```
 - add the release logo and theme to the final release blog
 

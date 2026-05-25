@@ -61,11 +61,13 @@ The template should give you some boilerplate. However, each release has its own
 ```md
 ---
 layout: blog
-title: 'Kubernetes 1.XX: <Release Name>'
+title: 'Kubernetes v1.XX: <Release Name>'
 date: 202n-mm-dd
-slug: kubernetes-1-XX-release-announcement
+slug: kubernetes-v1-XX-release-announcement
 author: >
   [Kubernetes v1.XX Release Team](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.XX/release-team.md)
+release_announcement:
+  minor_version: "1.XX"
 ---
 ---
 

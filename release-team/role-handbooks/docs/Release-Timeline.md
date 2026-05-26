@@ -480,16 +480,17 @@ The middle weeks of the release cycle are where the Docs Lead and Docs Lead Shad
 Before diving into tracking and reviews, establish a lightweight async communication rhythm with your shadows. This is especially important given that shadows are typically distributed across timezones.
  
 - Set up a dedicated Slack thread or DM group with your shadow team for daily async standups.
-- Assign each shadow one or more KEPs from the tracking board to own end-to-end (initial outreach, PR review, merge tracking).
+- Assign each shadow one or more KEPs from the tracking board to own end-to-end (initial outreach, PR review, merge tracking). When assigning KEPs, try grouping same Enhancement Owners and/or by same SIGs - This is helpful in scenarios when a shadow needs to reach out over Slack, they can probably club similar Enhancement Owners/SIGs PRs in a single message. 
 - Reference the **Responsibility Signup Sheet** (shared by the outgoing Docs Lead or Release Lead at the start of the cycle) to distribute weekly tasks such as release notes generation and branch sync PRs.
 - Hold a brief weekly sync (or async check-in) to surface blockers, reassign stalled KEPs, and coordinate on upcoming deadlines.
 
 ### Track PRs
  
-Track PRs based on Enhancement Tracking based on Github board shared to by the Enhancements sub-team.
+Track PRs in the Release Tracking Github board shared by the Enhancements sub-team.
  
 The Enhancements Github board contains multiple views for the Enhancements, Docs, and the Comms subteam. The view of concern to the Docs sub-team is the Docs view. For example: Please refer to the [v1.36 Docs view - Enhancements Tracking](https://github.com/orgs/kubernetes/projects/241/views/3)
  
+>
 The Docs view contains the following items:
  - **Title**: The Title of the KEP
  - **Assignees**: The KEP authors or the assignees
@@ -617,12 +618,12 @@ Thank you!
  
 #### After the Code Freeze Deadline
  
-A few days after the Code Freeze deadline, once the code freeze exceptions have been tackled - please update the tracked KEPs to mark them `At Risk for Docs Freeze` or `Tracked for Docs Freeze`
+A few days after the Code Freeze deadline, once the code freeze exceptions have been tackled - please update the tracked KEPs to mark them `At Risk for Docs Freeze` or `Tracked for Docs Freeze` within the Release Tracking Github board.
 
 - **Tracked for Docs Freeze:** The Docs PR has been reviewed, approved and merged. The KEP is marked `Tracked for the Docs Freeze`
 - **At Risk for Docs Freeze:** The Docs PR is upcoming and the documentation looks incomplete. The KEP is marked `At Risk for Docs Freeze`
 
-If all the checkboxes are checked in the template below, then the KEP will usually be `Tracked for Docs Freeze` otherwise `At Risk for Docs Freeze` 
+If all the checkboxes are checked in the template below, then the KEP will usually be `Tracked for Docs Freeze` otherwise `At Risk for Docs Freeze`. Please use the template given below to comment it on the KEP's GitHub issue and then track the status from there. 
  
 **Template:**
 ```
@@ -636,7 +637,7 @@ Here's where this enhancement currently stands:
 - [ ] The docs PR(s) to the `k/website` repo that are related to your enhancement are linked in the above issue description (for tracking purposes).
 - [ ] The docs PR(s) is created against the dev-[future-release] branch.
 - [ ] The docs PR(s) are in Ready to Review state wherein they are updated with all the changes required and marked ready to review.
-- [ ] The docs PR(s) are ready to be merged (they have approved and lgtm labels applied) by the Docs Freeze deadline.
+- [ ] The docs PR(s) are ready to be merged (they have `approved` and `lgtm` labels applied) by the Docs Freeze deadline.
  
 The status of this enhancement is marked as At Risk for Docs Freeze / Tracked for Docs Freeze.
  
@@ -782,7 +783,7 @@ Also review each PR for:
 - Check that the PR has a docs final approval `/approve`.
 - Check that the milestone for the release has been added. If not, please use the `/milestone` command to apply
 - KEP reviewers and approvers can provide a technical review or delegate appropriately. KEP reviewers and approvers are usually listed in the [kep.yaml](https://github.com/kubernetes/enhancements/blob/master/keps/sig-architecture/1194-prod-readiness/kep.yaml).
-- If no LGTM, assign `sig/*` labels to help find technical reviewers.
+- If no LGTM, assign `sig/*` labels (as listed in the Release Tracking Board or the KEP issue) to help find technical reviewers.
 
 
 #### Style Guide Checklist (High to Low Level)

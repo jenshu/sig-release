@@ -631,8 +631,8 @@ During these weeks, the Docs Lead focuses on finalizing release notes, coordinat
 ### ⚠️ Final Release Notes Preparation (CRITICAL TASK)
 
 > [!Important]
-> This is a **Docs Lead responsibility** and a **time-intensive task**. Release notes accumulate throughout the cycle as changes progress through `alpha` → `beta` → `rc` (Release Candidate) → Final release cut.  
-> Start this process around **Docs Freeze** (as noted in the release calendar), since release notes typically diminish after each `rc`. Aim to have reviews completed before the final `rc.1` release, so you are in a comfortable position to incorporate any final `rc.1` changes and merge before the release cut.
+> This is a **Docs Lead responsibility** and a **time-intensive task**.
+> Start this process around **Docs Freeze** (as noted in the release calendar), since release notes typically diminish after each `rc`. Aim to complete the majority of reviews before the final `rc.1` release so you are in a comfortable position to incorporate, review, and merge any final `rc.1` release note changes before the final release cut.
 
 **What:** Perform a comprehensive final review of all release notes to ensure they conform to the [Documentation Style Guide](https://kubernetes.io/docs/contribute/style/style-guide/) and maintain consistent quality.
 
@@ -672,6 +672,31 @@ During these weeks, the Docs Lead focuses on finalizing release notes, coordinat
      - Release Lead
      - SIG Chairs and Tech Leads (they need to review release notes changes relevant to their SIGs)
    - Post in [#chairs-and-techleads](https://kubernetes.slack.com/archives/CD6LAC15M) to notify SIG Chairs/Tech Leads to look through their release notes changes
+      <details>
+        <summary>Slack message template</summary>
+
+        ```text
+        Hello #chairs-and-techleads! 👋
+
+        The Release Docs Team has prepared the final draft of the release notes, and we’d appreciate your help in reviewing the notes related to your SIG.
+
+        Please review the draft here:
+        <release-notes-final-draft-link>
+
+        Things to review:
+
+        - Search (Ctrl+F) for your SIG and suggest moving notes to an appropriate location in the Release Note PR comments.
+        - If you are aware of anything that should appear in the "Known Issues" section of the release notes, please leave a comment with the issue and a draft of the note text.
+        - Please review the release notes for the SIG you are associated with and check for technical inaccuracies, grammar inconsistencies, etc.
+        - Please remove minor and/or non-user-facing release notes contributed by your SIG.
+        - For notes associated with multiple SIGs, suggest the most appropriate SIG categorization if required.
+
+        Please leave your feedback/comments on the PR.
+        
+        Thank you so much for supporting the release process and helping improve the release notes!
+        ```
+
+  </details>
 
 **Example PR:** [v1.35 Final Release Notes Review](https://github.com/kubernetes/sig-release/pull/2928)
 

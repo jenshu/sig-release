@@ -26,6 +26,8 @@ Some timelines to keep in mind:
 
 **Note**: In your placeholder PR, use the current scheduled overall release date for the blog `date` and add a `draft:true` to the front matter. This will help us to merging this ahead of the release date and scheduling it after the release date.
 
+For easier tracking, please let us know whether you’d like to opt in or opt out. If you’re opting in, kindly include the skeleton blog PR in your reply.
+
 If you have any questions or need help, please feel free to reach out to me or any of the Communications Team members. We are here to help you!
 ```
 
@@ -44,6 +46,8 @@ For the x.yy release, we are currently in the process of collecting and curating
 - ...Or this is a long-awaited feature, which would go a long way to cover the journey more in detail 🎉 
 
 To opt in to write a feature blog, could you please let us know and open a "Feature Blog placeholder PR" (which can be only a skeleton at first) against the [website repository](https://github.com/kubernetes/website) by **<<BLOG_PLACEHOLDER_DEADLINE>> WEEKDAY, DAY MONTH**? For more information about writing a blog, please find the [release communications guidelines](https://kubernetes.io/docs/contribute/blog/release-comms/) 📚
+
+For easier tracking, please let us know whether you’d like to opt in or opt out. If you’re opting in, please include the skeleton blog PR in your reply.
 
 > [!Tip]
 > Some timeline to keep in mind:
@@ -78,7 +82,6 @@ This is a gentle reminder for the feature blog deadline mentioned above, which i
 > - **02:00 UTC <<BLOG_PLACEHOLDER_DEADLINE>> WEEKDAY, DAY MONTH**: Feature blog PR freeze
 > - **<<BLOG_READY>> WEEKDAY, DAY MONTH**: Feature blogs ready for review
 > - You can find more in the [release document](LINK)
-> 
 
 > [!Note]
 > In your placeholder PR, use `XX` characters for the blog `date` in the front matter and file name. We will work with you on updating the PR with the publication date once we have a final number of feature blogs for this release.

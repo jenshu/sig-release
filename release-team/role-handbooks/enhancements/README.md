@@ -642,9 +642,9 @@ During the meeting:
   - Update the issue `Status` to either `Tracked for code freeze` or `At risk for code freeze` on the tracking board
   - KEPs targeting `stable` for the release will now need to be marked as `implemented` after code PRs are merged.
 - To avoid delays and ensure everything is in place for Code Freeze, the Enhancements Lead must: 
-  - **Coordinate with the Release Branch Manager**: Reach out to the Release Branch Manager to give them a heads-up about the upcoming Code Freeze. They are responsible for raising the PR that officially enforces the Code Freeze. Coordinating early helps minimize the risk of delays and last-minute blockers. For more details on their role and responsibilities, refer to the [Release Branch Manager Handbook](/release-engineering/role-handbooks/branch-manager.md)
+  - **Coordinate with the Release Managers**: Reach out to the Release Managers to give them a heads-up about the upcoming Code Freeze. They are responsible for raising the PR that officially enforces the Code Freeze. Coordinating early helps minimize the risk of delays and last-minute blockers. For more details on their role and responsibilities, refer to the [Release Manager Handbook](/release-engineering/handbooks/release-manager.md)
   - **Ensure the Code Freeze PR is opened and ready to merge**: The Code Freeze PR should be ready for merge (i.e., it has both `lgtm` and `approved` labels) **on or before the date of Code Freeze**.
-    - **Recommendation:** Work with the Release Branch Manager to get the PR created ahead of time and ensure all **required labels** (`lgtm`, `approved`) are in place. They can add a `/hold` to prevent the PR from merging early - then simply lift the hold in the Code Freeze Party.
+    - **Recommendation:** Work with the Release Managers to get the PR created ahead of time and ensure all **required labels** (`lgtm`, `approved`) are in place. They can add a `/hold` to prevent the PR from merging early - then simply lift the hold in the Code Freeze Party.
     - Example code freeze enforcement PRs:
       - 1.35 https://github.com/kubernetes/test-infra/pull/35869
       - 1.34 https://github.com/kubernetes/test-infra/pull/35171

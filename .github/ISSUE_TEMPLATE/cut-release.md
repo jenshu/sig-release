@@ -42,7 +42,7 @@ Screenshot Testgrid Boards:
 Use `krel testgridshot` to automatically create the screenshots
 http://bit.ly/relmanagers-handbook#testgrid-screenshots
 
-Stage and Release (mock and nomock):
+Stage and Release:
 Use `krel stage` && `krel release` see the handbook for more:
 http://bit.ly/relmanagers-handbook#releases-management
 
@@ -76,9 +76,11 @@ Help? Ring @release-managers on slack!
 - [ ] Create a thread on #release-management: <!-- Paste link to slack -->
 - [ ] Screenshot unhealthy release branch testgrid boards
 - [ ] Check the health of the publishing-bot <!-- check if https://github.com/kubernetes/kubernetes/issues/56876 is closed  --> 
-- Mock Run (skip for patch releases)
+<!-- Uncomment for non-patch releases
+- Mock Run
   - [ ] Stage
   - [ ] Release
+-->
 - NoMock Run
   - [ ] Stage
   - [ ] Image Promotion PR: <!-- Paste Pull Request URL here -->
@@ -108,8 +110,10 @@ Platform:      linux/amd64
 <!-- The following table can be automatically generated using krel --history  -->
 | Step | Command | Link | Start | Duration | Succeeded? |
 | --- | --- | --- | --- | --- | --- |
-| Mock stage (skip for patch releases) | `krel stage [arguments]` | | | | |
-| Mock release (skip for patch releases) | `krel release [arguments]` | | | | |
+<!-- Uncomment for non-patch releases
+| Mock stage | `krel stage [arguments]` | | | | |
+| Mock release | `krel release [arguments]` | | | | |
+-->
 | Stage | `krel stage [arguments]` | | | | |
 | Release | `krel release [arguments]` | | | | |
 

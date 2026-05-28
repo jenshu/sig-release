@@ -18,25 +18,27 @@
     - [Responsibilities Sign-up Sheet](#responsibilities-sign-up-sheet)
     - [Update the website configuration ahead of the release](#update-the-website-configuration-ahead-of-the-release)
   - [Middle Steps (Weeks 3-8)](#middle-steps-weeks-3-8)
+    - [Internal Team Coordination](#internal-team-coordination)
     - [Track PRs](#track-prs)
-    - [Communicate major deadlines](#communicate-major-deadlines)
+    - [Communicate Major Deadlines](#communicate-major-deadlines)
     - [Begin Generating Release Notes](#begin-generating-release-notes)
-        - [Set up the Tools and Generate the Release Notes](#set-up-the-tools-and-generate-the-release-notes)
-        - [Periodically review and fix new release notes](#periodically-review-and-fix-new-release-notes)
-        - [Maintain Known Issues](#maintain-known-issues)
-        - [Ensure Release Highlights are Reflected in the Notes](#ensure-release-highlights-are-reflected-in-the-notes)
-        - [Get feedback from SIG Leads](#get-feedback-from-sig-leads)
-    - [Reach out to Enhancement Owners](#reach-out-to-enhancement-owners)
+      - [Set up the Tools and Generate the Release Notes](#set-up-the-tools-and-generate-the-release-notes)
+      - [Periodically Review and Fix New Release Notes](#periodically-review-and-fix-new-release-notes)
+      - [Reviewing the Release Notes PR](#reviewing-the-release-notes-pr)
+      - [Maintain Known Issues](#maintain-known-issues)
+      - [Ensure Release Highlights are Reflected in the Notes](#ensure-release-highlights-are-reflected-in-the-notes)
+      - [Get Feedback from SIG Leads](#get-feedback-from-sig-leads)
+    - [Reach Out to Enhancement Owners](#reach-out-to-enhancement-owners)
       - [Before the Open Placeholder PR Deadline](#before-the-open-placeholder-pr-deadline)
+      - [After the Code Freeze Deadline](#after-the-code-freeze-deadline)
       - [Before the PRs Ready for Review Deadline](#before-the-prs-ready-for-review-deadline)
       - [Before the Docs Freeze Deadline](#before-the-docs-freeze-deadline)
       - [Week of Docs Freeze](#week-of-docs-freeze)
       - [After Docs Freeze](#after-docs-freeze)
-    - [Maintain the current and upcoming `dev` branch](#maintain-the-current-and-upcoming-dev-branch)
-      - [⚠️ Periodically merge `main` into `dev-[future release]`](#️-periodically-merge-main-into-dev-future-release)
-    - [Monitor PRs](#monitor-prs)
-    - [Enforce deadlines](#enforce-deadlines)
-    - [Review PRs](#review-prs)
+      - [Handling Docs Freeze Exceptions](#handling-docs-freeze-exceptions)
+    - [Weekly Branch Sync PRs](#weekly-branch-sync-prs)
+      - [Periodically Merge `main` into `dev-[future release]`](#periodically-merge-main-into-dev-future-release)
+    - [Monitor & Review Doc PRs](#monitor--review-doc-prs)
       - [Style Guide Checklist (High to Low Level)](#style-guide-checklist-high-to-low-level)
     - [Nominate a Docs Lead for the Next Release](#nominate-a-docs-lead-for-the-next-release)
   - [Late-Middle Steps (Weeks 7-8) - Sync with Comms team on the release blog post](#late-middle-steps-weeks-7-8---sync-with-comms-team-on-the-release-blog-post)
@@ -470,195 +472,267 @@ Reviewer: @<handle>
 ---
 
 ## Middle Steps (Weeks 3-8)
-The middle weeks of the launch are where the Docs Lead and Docs Lead Shadows track and review incoming PRs.
+ 
+The middle weeks of the release cycle are where the Docs Lead and Docs Lead Shadows track and review incoming PRs.
+ 
+### Internal Team Coordination
+ 
+Before diving into tracking and reviews, establish a lightweight async communication rhythm with your shadows. This is especially important given that shadows are typically distributed across timezones.
+ 
+- Set up a dedicated Slack thread or DM group with your shadow team for daily async standups.
+- Assign each shadow one or more KEPs from the tracking board to own end-to-end (initial outreach, PR review, merge tracking). When assigning KEPs, try grouping same Enhancement Owners and/or by same SIGs - This is helpful in scenarios when a shadow needs to reach out over Slack, they can probably club similar Enhancement Owners/SIGs PRs in a single message. 
+- Reference the **Responsibility Signup Sheet** (shared by the outgoing Docs Lead or Release Lead at the start of the cycle) to distribute weekly tasks such as release notes generation and branch sync PRs.
+- Hold a brief weekly sync (or async check-in) to surface blockers, reassign stalled KEPs, and coordinate on upcoming deadlines.
 
 ### Track PRs
+ 
+Track PRs in the Release Tracking Github board shared by the Enhancements sub-team.
+ 
+The Enhancements Github board contains multiple views for the Enhancements, Docs, and the Comms subteam. The view of concern to the Docs sub-team is the Docs view. For example: Please refer to the [v1.36 Docs view - Enhancements Tracking](https://github.com/orgs/kubernetes/projects/241/views/3)
+ 
+>
+The Docs view contains the following items:
+ - **Title**: The Title of the KEP
+ - **Assignees**: The KEP authors or the assignees
+ - **Status**: Track the status of the KEP. This cycles between the _Enhancement Freeze_, _PRR Freeze_, _Code Freeze_, and the _Docs Freeze_.
+ - **Docs Required?**: Track if the Enhancements requires a Docs update.
+    1. **Need docs**: Actively needs docs to support the enhancement in the [future-release]
+    1. **Has Docs**: Actively has docs in place on Kubernetes website or in flight
+    1. **None Required**: The KEP doesn't change anything that requires reflection in Kubernetes website
+    1. **Removed from release**: The KEP has been now removed from the release.
+    1. **Unknown**: After reviewing the KEP, it is unclear if this needs docs or not
+    1. **Complete**: All the changes required has been merged and complete.
+    1. **PR Ready for Review**: The docs PR has been authored and is ready for review.
+ - **Docs Assignee**: The assignee from the Docs subteam responsible to track this KEP
+ - **Docs Status**: The status of the the Docs PR authored by the KEP owner or one of the assignees.
+    1. **No PR**: No PR has been created yet in the `k/website`
+    1. **Draft(PR)**: A draft PR has been open for the docs changes but the PR is not ready to review. The draft PR could also have no changes or empty commit.
+    1. **PR Ready to Review**: The docs PR is open but content IS ready for review by the respective SIGs and sig-docs.
+    1. **Complete (Merged PR)**: The docs PR has been merged after the review and approval from the involved sigs.
+    1. **No Docs Needed**: The KEP doesn't change anything that requires reflection in Kubernetes website
+    1. **Removed from Release**: The KEP has been now removed from the release.
 
-Track PRs based on the enhancement (KEP) spreadsheet.
+### Communicate Major Deadlines
+ 
+The Release Lead and Enhancements Lead will send announcements to the [Kubernetes Dev Group](https://groups.google.com/a/kubernetes.io/g/dev) periodically during the release cycle. Remember to communicate with the Release Lead and Enhancements Lead to include the Docs Placeholder PR deadline, Doc Ready-for-Review deadline, and the Docs Freeze dates in their announcements.
 
-Keep the enhancement tracking spreadsheet up to date with review progress and merge status for each documentation PR. For example: [Kubernetes Enhancements OSS tracking board (1.21 release)](http://bit.ly/k8s121-enhancements)
-
-⚠️ Assign the enhancements evenly across your Shadows after the enhancement freeze. Assigning shadows before the
- enhancement freeze will cause unexpected behavior in the tracking spreadsheet due to frequent updates to dynamic data.
- (Tip: When assigning enhancements, try grouping enhancement owners and/or by SIGs)
-  - You and your Shadows will be responsible for tracking whether the enhancement:
-    - **has docs:** Actively has docs in place on Kubernetes website or in flight
-    - **needs docs:** Actively needs docs to support the enhancement in the [future-release]
-    - **unknown:** After reviewing the KEP, it is unclear if this needs docs or not
-    - **not required:** The KEP doesn't change anything that requires reflection in Kubernetes website
-  - You and your Shadows will also be responsible for marking whether the docs are:
-    - **Complete (Merged):** PR on the dev-[future-release] is done and merged
-    - **No PR:** No PR is open (helpful for deadline tracking)
-    - **Late:** No PR is open AND it's passed the deadline
-    - **Draft (PR):** PR is open but content isn't ready for review
-    - **Ready for Review (PR):** PR is open but content IS ready for review
-- ⚠️ Make sure that every docs PRs for the release have the correct base and set the correct Milestone. For example, enhancement PRs for version 1.21 need a base branch of `dev-1.21` and the Milestone set to `1.21`.
-
-The spreadsheet can be used to track the current health of the docs for release. For example:
-
-![Sample spreadsheet](pics/enhancement-tracking.png)
-
-On the "Enhancement Stats" tab, a table was created to track the Doc Stats and then based on their category, in the other tab, assign a status "Green / Yellow / Red."
-
-This is very helpful for weekly reports and managing deadlines
-
-### Communicate major deadlines
-
-The Release Lead and Enhancements Lead will send announcements to the [Kubernetes Dev Group](https://groups.google.com/a/kubernetes.io/g/dev) periodically during the release cycle.
-Communicate with the Release Lead and Enhancements Lead to include the Doc Placeholder PR, Doc PR Ready-for-Review, and Docs Complete deadlines in their announccements.
-
-COMMUNICATE ALL 3 MAJOR DATES AT LEAST A WEEK PRIOR, INCLUDING THE RELEASE DATE REPO FREEZE, FOLLOWING THE BELOW METHODS:
-
+> [!IMPORTANT]
+> Communicate all 3 Major dates **at least a week** prior, including the _**release date**_, and the _**repo freeze date**_, following the methods given below.
+ 
 - Keep developers apprised of due dates for docs.
-    Send announcements to:
-    - [#sig-release](https://kubernetes.slack.com/messages/sig-release) on Slack
+    Send announcements in timely manner to:
     - Your team / shadows
+    - [#sig-release](https://kubernetes.slack.com/messages/sig-release) on Slack
     - [#sig-docs](https://kubernetes.slack.com/messages/sig-docs)
     - [#sig-docs-maintainers](https://kubernetes.slack.com/messages/sig-docs-maintainers)
     - [#chairs-and-techleads](https://kubernetes.slack.com/messages/chairs-and-techleads)
     - Release subteams:
       - [#enhancements](https://kubernetes.slack.com/messages/enhancements)
-      - [#release-bug-triage](https://kubernetes.slack.com/messages/release-bug-triage)
       - [#release-ci-signal](https://kubernetes.slack.com/messages/release-ci-signal)
       - [#release-notes](https://kubernetes.slack.com/messages/release-notes)
       - [#release-comms](https://kubernetes.slack.com/messages/release-comms)
     - (optional) Twitter
       - If you tweet, send a message to [#sig-release](https://kubernetes.slack.com/messages/sig-release) and ask for a friendly signal boost (retweets)
 
-Example notice:
 
-> Hey! The Docs `Placeholder PR` deadline is Tuesday March 16 HH:MM timezone.
->
-> That means if you have a v1.21 enhancement (that requires docs), #sig-docs require that you have _at the very least_ a PR opened against the `dev-1.21` branch in the kubernetes/website repo.
->
-> It would be AWESOME if it's the full doc! 😀
->
-> Thanks! Important dates for v1.21: https://github.com/kubernetes/sig-release/blob/master/releases/release-1.21/README.md#tldr
->
-> ![Bring out your docs](pics/meme-deadline.jpg)
-    
-### Begin generating Release Notes
-Begin running release-notes tool for the ongoing collection of release notes with the first alpha release, which has been cut directly after the latest minor.
+**Example Template:**
+```
+Hello {doc/KEP owners} 👋! [future-release] Docs team here. 
 
-- Update the `release-notes-draft.md`
-- Verify release notes are available on (relnotes.k8s.io)[https://relnotes.k8s.io/]
-- Informal intro meeting with release notes team to discuss contact information and logistics
-
+The Docs `Placeholder PR` deadline is Thursday 26th February 2026 (AoE) / Friday 27th February 2026, 12:00 UTC.
+ 
+That means if you have a v1.36 enhancement (that requires docs), #sig-docs require that you have _at the very least_ a PR opened against the `dev-1.36` branch in the kubernetes/website repo.
+ 
+It would be AWESOME if it's the full doc! 😀
+ 
+Important dates for v1.36: https://github.com/kubernetes/sig-release/blob/master/releases/release-1.36/README.md#summary
+```
+ 
+### Begin Generating Release Notes
+ 
 #### Set up the Tools and Generate the Release Notes
-
+ 
 The Docs team is responsible for the generation of the release notes during the release cycle.
-
-At least one member of the Docs Team should be responsible for [setting up](https://github.com/kubernetes/release/tree/master/docs/krel#installation) and [running](https://github.com/kubernetes/release/blob/master/docs/krel/release-notes.md) the release-notes subcommand of krel to generate the release notes after each Patch Release:
-
-1. Update the release notes draft, a markdown file which will become the final document which will encompass all release notes written by contributors during the current release cycle. See previous drafts for versions [1.25](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.25/release-notes/release-notes-draft.md), [v1.24](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.24/release-notes/release-notes-draft.md) or [v1.23](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.23/release-notes/release-notes-draft.md).
-
+ 
+All the members of the Docs team will take turn based on the Responsibility Signup Sheet to prepare the release notes. Please start with [setting up](https://github.com/kubernetes/release/tree/master/docs/krel#installation) and [running](https://github.com/kubernetes/release/blob/master/docs/krel/release-notes.md) the release-notes subcommand of krel to generate the release notes after each patch release.
+ 
+Update the release notes draft, a markdown file which will become the final document which will encompass all release notes written by contributors during the current release cycle. See previous drafts for versions [1.25](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.25/release-notes/release-notes-draft.md), [v1.24](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.24/release-notes/release-notes-draft.md) or [v1.23](https://github.com/kubernetes/sig-release/blob/master/releases/release-1.23/release-notes/release-notes-draft.md).
 Detailed instructions for generating the release notes bundle is in the [krel release-notes subcommand documentation](https://github.com/kubernetes/release/blob/master/docs/krel/release-notes.md).
-
-#### Periodically review and fix new release notes
-
-The Docs team must make sure that the final document includes well-written and informative release notes. To achieve a high-quality document the team should review and edit the
-notes by running `krel release-notes --fix` weekly or as often as development pace
-demands.
-
+ 
+#### Periodically Review and Fix New Release Notes
+ 
+The Docs team must make sure that the final document includes well-written and informative release notes. To achieve a high-quality document the team should review and edit the notes by running `krel release-notes --fix` weekly or as often as development pace demands.
+ 
 This command will enable the team to review each release note and edit the note's data. It is recommended that the team splits the work among all members and runs the editing flow on a weekly or biweekly basis. More information about the editing flow can be found in a separate document detailing the [editing process and tooling](editing-flow.md).
-
+ 
 The general style guide for release notes includes checking for:
 - Past tense: Release notes should be written in the past tense since the changes have already been implemented.
 - Technical jargon: While the notes are generally user-friendly, some technical terms like "VAC" or "scheduling hints" could be explained briefly with backticks or double quotes for users unfamiliar with them.
 - Additional context: In some cases, providing more context about the problem these changes address or the specific situations where they're relevant could be helpful for understanding their significance. You can find additional context referenced in the PR in k8s/k8s repo to check what the PR does for end users.
-
 Additional style guidelines can be found in the [Documentation Style Guide](https://kubernetes.io/docs/contribute/style/style-guide/).
 
+#### Reviewing the Release Notes PR
+
+Once the Release Notes PR has been created, the assigned reviewer for the release needs to review the PR. It is highly recommended for all shadows to have a look at the PR. The better the review, the lighter the load when creating the Final Release Notes Draft PR.
+
+As a reviewer, you need to look into the following items:
+- Check that all PRs merged since the last patch release have been processed. If a PR with release notes is missed, please report the issue to the Docs Lead immediately.
+- The release notes draft markdown needs a thorough review of text.
+- Please strictly adhere to the [style guide](https://kubernetes.io/docs/contribute/style/style-guide/).
+- When placing a release note under the `ACTION_REQUIRED` section, consult with the appropriate SIG or category. The release notes in the `ACTION_REQUIRED` section are given high importance and a release note can sometimes be wrongly placed in this category.
+- Check that the SIG marked against each release note in the markdown file is correct. If missing, please make sure to let the PR author know.
+- During re-reviews, make sure the changes in the markdown are synced in the release notes draft JSON and the map files.
+ 
 #### Maintain Known Issues
-
+ 
 A ["Known Issues Umbrella Issue"](known-issues-bucket.md) for the release must be created by the Docs team in [kubernetes/kubernetes](https://github.com/kubernetes/kubernetes/issues/new) so issues can be collected for the "Known Issues" section of the release notes. See previous known issues for [1.25](https://github.com/kubernetes/kubernetes/issues/110336), [1.24](https://github.com/kubernetes/kubernetes/issues/109027), [v1.23](https://github.com/kubernetes/kubernetes/issues/104885), [v1.22](https://github.com/kubernetes/kubernetes/issues/101728), [v1.21](https://github.com/kubernetes/kubernetes/issues/98232), [v1.19](https://github.com/kubernetes/kubernetes/issues/90304), [v1.18](https://github.com/kubernetes/kubernetes/issues/86882) or [v1.17](https://github.com/kubernetes/kubernetes/issues/83683).
-
+ 
 #### Ensure Release Highlights are Reflected in the Notes
-
+ 
 The Communications team will hold a meeting to discuss Release Highlights sometime around Code Freeze. Ensure that at least one person from the Docs team attends this meeting with the Release Lead and Enhancements Lead. The Docs team should ensure that the "Release Highlights" identified in this meeting are reflected in the "Release Highlights" section of the release notes. If no one is able to attend the meeting, reach out to the Communications team, Release Lead or Enhancements Lead to ensure messaging around Release Highlights is coordinated.
-
-#### Get feedback from SIG Leads
-
+ 
+#### Get Feedback from SIG Leads
+ 
 Around Code Freeze, the Docs team will get in touch with the SIG Leads to ensure that the Release Notes accurately reflect the major themes for their SIGs. The team will also ensure that major issues captured in the release notes are confirmed by the SIG leads before release day.
-
-If gentle nudging of SIG Leads is not effective in retrieving feedback/confirmation, the Docs Team can use a reasonable amount of creative liberty in completing the notes.
-
-### Reach out to Enhancement Owners
-
+ 
+Set a clear internal deadline for SIG Lead feedback - typically 3-4 days before the release notes need to be finalized. If a SIG Lead is unresponsive by that deadline, proceed with the best available information and notify the Release Lead. The Docs team can use a reasonable amount of creative liberty in completing the notes, but should not silently omit major themes for a SIG.
+ 
+### Reach Out to Enhancement Owners
+ 
 #### Before the Open Placeholder PR Deadline
-After the Enhancement Freeze, reach out to all tracked enhancements to see if new docs or modification to existing docs
-are required, e.g:
+ 
+After the Enhancement Freeze, reach out to all tracked enhancements to see if new docs or modification to existing docs are required.
+ 
+**Template:**
+```
+Hello {doc/KEP owners} 👋! [future-release] Docs team here.
+ 
+Does this enhancement work planned for [future-release] require any new docs or modification to existing docs?
+ 
+If so, please follow the steps [here](https://kubernetes.io/docs/contribute/new-content/new-features/#open-a-placeholder-pr) to open a PR against `dev-[future release]` branch in the `k/website` repo. This PR can be just a placeholder at this time and must be created before {Docs Open Placeholder deadline HH:MM timezone}.
+ 
+Also, take a look at [Documenting for a release](https://kubernetes.io/docs/contribute/new-content/new-features/#for-developers-or-other-sig-members) to get yourself familiarized with the docs requirement for the release.
+ 
+Thank you!
+```
+ 
+#### After the Code Freeze Deadline
+ 
+A few days after the Code Freeze deadline, once the code freeze exceptions have been tackled - please update the tracked KEPs to mark them `At Risk for Docs Freeze` or `Tracked for Docs Freeze` within the Release Tracking Github board.
 
-> Hello < tag enhancement owner(s) > :wave:, < future-release > Docs < Shadow/Lead > here.
->
-> Does this enhancement work planned for < future-release > require any new docs or modification to existing docs?
->
-> If so, please follows the steps [here](https://kubernetes.io/docs/contribute/new-content/new-features/#open-a-placeholder-pr)
-> to open a PR against `dev-[future release]` branch in the `k/website` repo. This PR can be just a placeholder at this
-> time and must be created before < Docs Open Paceholder deadline HH:MM timezone>
->
-> Also, take a look at [Documenting for a release](https://kubernetes.io/docs/contribute/new-content/new-features/#for-developers-or-other-sig-members)
-> to get yourself familiarize with the docs requirement for the release.
->
-> Thank you!
+- **Tracked for Docs Freeze:** The Docs PR has been reviewed, approved and merged. The KEP is marked `Tracked for the Docs Freeze`
+- **At Risk for Docs Freeze:** The Docs PR is upcoming and the documentation looks incomplete. The KEP is marked `At Risk for Docs Freeze`
 
+If all the checkboxes are checked in the template below, then the KEP will usually be `Tracked for Docs Freeze` otherwise `At Risk for Docs Freeze`. Please use the template given below to comment it on the KEP's GitHub issue and then track the status from there. 
+ 
+**Template:**
+```
+Hello {doc/KEP owners} 👋! [future-release] team here,
+ 
+As we approach:
+- Ready to Review deadline: [Ready to review deadline]
+- Docs Freeze deadline: [Docs Freeze deadline]
+ 
+Here's where this enhancement currently stands:
+- [ ] The docs PR(s) to the `k/website` repo that are related to your enhancement are linked in the above issue description (for tracking purposes).
+- [ ] The docs PR(s) is created against the dev-[future-release] branch.
+- [ ] The docs PR(s) are in Ready to Review state wherein they are updated with all the changes required and marked ready to review.
+- [ ] The docs PR(s) are ready to be merged (they have `approved` and `lgtm` labels applied) by the Docs Freeze deadline.
+ 
+The status of this enhancement is marked as At Risk for Docs Freeze / Tracked for Docs Freeze.
+ 
+If you anticipate missing docs freeze, you can file an [exception request](https://github.com/kubernetes/sig-release/blob/master/releases/EXCEPTIONS.md) in advance.
+```
+ 
 #### Before the PRs Ready for Review Deadline
-After the Open Placeholder PR deadline, reach out to all open/tracked doc PRs to remind the PR owners to get their doc ready to be reviewed, e.g:
-
-> Hello < tag doc owner(s) > :wave: please take a look at [Documenting for a release - PR Ready for Review](https://kubernetes.io/docs/contribute/new-content/new-features/#pr-ready-for-review)
-> to get your PR ready for review before < PR Ready for Review deadline HH:MM timezone >. Thank you!
-
+ 
+After the Open Placeholder PR deadline, reach out to all open/tracked doc PRs to remind the PR owners to get their docs PR ready to be reviewed. It's better to send the reminders directly in the Draft PR so as to get quick replies and updates. In case of no updates, feel free to send the message over on Slack channels/DMs. The idea here is to use your best judgement.
+ 
+**Template:**
+```
+Hello {doc/KEP owners} 👋! [future-release] Docs team here.
+ 
+Please take a look at [Documenting for a release - PR Ready for Review](https://kubernetes.io/docs/contribute/new-content/new-features/#pr-ready-for-review) to get your PR ready for review before {PR Ready for Review deadline HH:MM timezone}.
+ 
+Thank you!
+```
+ 
 #### Before the Docs Freeze Deadline
+ 
+1. **Update the Docs view of Enhancements Tracking board**:<br/>
+Keep a close watch on the tracking board. As the PRs progress, please move the PRs into their respective status. 
 
-1. **Update the Enhancements board**
-  - You and your Shadows are also responsible for updating the Status of the enhancement as tracked or at risk for Docs Freeze:
-    - **Tracked for Docs Freeze:** Documentation is in an active review, will likely be merged by Doc Freeze deadline or has already been merged.
-    - **At Risk for Docs Freeze:** The Docs Freeze deadline is upcoming and the documentation looks to be at risk of making that deadline, risking an exception.
+2. **Coordinate a Plan with SIG Docs**:<br/>
+It is crucial for the Docs Lead to plan and coordinate with the SIG Docs leads, especially between the PR Ready for Review deadline and the Docs Freeze deadline. Establish a clear plan to address the available capacity of SIG Docs and Release Docs to review doc PRs and anticipate potential obstacles such as KubeCon or other events that might affect the availability of reviewers.
 
-2. **Coordinate a Plan with SIG Docs**:
-It is crucial for the Docs Lead to plan and coordinate with the SIG Docs leads, especially between the PR Ready for Review deadline and the Docs Freeze deadline. Establish a clear plan to address the available capacity of SIG Docs and Release Docs to review doc PRs and anticipate potential obstacles such as KubeCon or other events that might affect the availability of reviewers. Ask how Release Docs can help!
+3. **Prepare to Loop in the Subproject Leads**:<br/>
+In case of a non-responsive KEP, please drop a reminder well in advance to the respective SIG Leads to take action on the PR. The escalation path is as follows:
+    1. Leave a comment on the PR and send a Slack DM to the KEP owner.
+    1. Ping the SIG Chairs and Tech Leads via [#chairs-and-techleads](https://kubernetes.slack.com/messages/chairs-and-techleads) on Slack.
+    1. Join the SIG's regular meeting and raise the urgency in person.
+    1. As a last resort, escalate to the Subproject lead(s) and the Release Lead. Please reach out to them at least a week prior.
 
-3. **Communicate Docs Freeze at start of Review**
-After the PR ready for review deadline, reach out to all open/tracked doc PRs to remind the PR owners to get docs reviewed, e.g:
+4. **Communicate Docs Freeze at Start of Review**:<br/>
+After the PR Ready for Review deadline, reach out to all open/tracked doc PRs to remind the PR owners to get docs reviewed.
+**Template:**
+```
+Hello {doc/KEP owners} 👋! [future-release] Docs team here.
 
-> Hello < tag doc owner(s) > :wave:, a friendly reminder that this PR needs a doc review by < Docs Complete Deadline HH:MM timezone > to get this
-> into the release. Please reach out to required SIGs to get their review. Thank you!
+A friendly reminder that this PR needs a doc review by {Docs Complete Deadline HH:MM timezone} to get this into the release. Please reach out to required SIGs to get their review.
 
-For a technical review, reach out to the KEP reviewers and approvers. KEP reviewers and approvers are usually listed in the
-[kep.yaml e.g.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-architecture/1194-prod-readiness/kep.yaml)
+Thank you!
+```
+ 
+5. For a technical review, reach out to the KEP reviewers and approvers. KEP reviewers and approvers are usually listed in the
+[kep.yaml](https://github.com/kubernetes/enhancements/blob/master/keps/sig-architecture/1194-prod-readiness/kep.yaml) or to the SIG owner.
+ 
+**Template:**
+```
+Hello {doc/KEP owners} 👋! [future-release] Docs team here.
 
-> Hello < tag KEP reviewer(s) / approver(s) > :wave: please provide a technical review for this PR by < Docs Complete deadline HH:MM timezone >
-> to get this into the release. Thank you!
+Please provide a technical review for this PR by {Docs Complete deadline HH:MM timezone} to get this into the release.
 
+Thank you!
+```
+ 
 #### Week of Docs Freeze
-
+ 
 Follow up with owners of all docs PRs that are not in a mergeable state via both a GitHub comment and a Slack DM. To be ready to merge, a PR requires both `/lgtm` and `/approve`, one of them from a technical reviewer, and comments and suggestions addressed. If the docs owner or KEP owners are unresponsive, you may reach out to the chairs and technical leads of the SIG that owns the associated KEP.
-
-Example:
-
-
->Hello {doc/KEP owners} 👋! I'm reaching out from the Docs team.
-Just checking in as we approach **Docs Freeze on {date with timezone}**.
-This documentation appears to still be under review. To meet the Docs Freeze, this PR must have a technical review as well as `lgtm` and `approve` labels applied, without any unaddressed comments or concerns from SIG Docs. 
-The status of this enhancement is marked as `at risk for docs freeze`. Thank you!
-
-
+ 
 #### After Docs Freeze
+ 
+Once Docs Freeze has passed, if there are any docs PRs not marked "Complete (Merge PR)" on the Enhancement Tracking board - Please reach out in the KEP with the following:
+ 
+**Template:**
+```
+Hello {doc/KEP owners} 👋! [future-release] Docs team here.
 
-Once Docs Freeze has passed, if there are any docs PRs not marked "ready to merge," reach out in the PR with the following:
+This PR did not meet the deadline for [docs freeze](https://github.com/kubernetes/sig-release/blob/master/releases/release_phases.md#docs-freeze).
+Enhancements without required documentation may be removed from the current release. If you still wish to include this enhancement in [current-release], please file an [exception](https://github.com/kubernetes/sig-release/blob/master/releases/EXCEPTIONS.md) request. 
 
->Hello 👋, {current release} Docs team here.
-This PR did not meet deadline for [docs freeze](https://github.com/kubernetes/sig-release/blob/master/releases/release_phases.md#docs-freeze).
-Enhancements without required documentation may be removed from the current release. If you still wish to include this enhancement in {current release}, please file an [exception](https://github.com/kubernetes/sig-release/blob/master/releases/EXCEPTIONS.md) request. Thanks!
+Thank you!
+```
+ 
+#### Handling Docs Freeze Exceptions
+ 
+When an exception request is filed, the Docs Lead should:
+ 
+1. Confirm the exception has been filed in the correct location ([sig-release EXCEPTIONS.md](https://github.com/kubernetes/sig-release/blob/master/releases/EXCEPTIONS.md) process).
+1. Track the exception against the KEP on the Docs view of the Enhancements board.
+1. Coordinate with the Release Lead on whether the enhancement will remain in the release.
+1. If approved, ensure the PR reaches a mergeable state before the final branch merge - communicate the hard deadline clearly to the PR owner.
+1. If denied, update the KEP status to `Removed from Release` on the tracking board and notify the PR owner.
 
-### Maintain the current and upcoming `dev` branch
-
-This allows us to avoid merge conflicts on release day with `dev-[future release]`.
-
-#### ⚠️ Periodically merge `main` into `dev-[future release]`
-
+### Weekly Branch Sync PRs
+ 
+The Docs subteam is required to maintain the current and upcoming `dev-[future release]` branch. This allows us to avoid merge conflicts on release day with `dev-[future release]`. This is usually done on a weekly basis - every Friday, a Docs subteam member assigned on the Responsibility Signup Sheet creates the respective PR.
+ 
+The Branch Sync PRs can either be created using the [branch-sync-script (recommended)](https://github.com/kubernetes/sig-release/tree/master/release-team/role-handbooks/docs/branch-sync-script) or the manual steps below.
+ 
+#### Periodically Merge `main` into `dev-[future release]`
+ 
 To merge `main` into `dev-[future release]` on your local fork:
-
+ 
 ```bash
 git clone git@github.com:{YOUR_USER}/website.git
 # Step 0 (if you don't already have a remote called "upstream")
@@ -683,46 +757,42 @@ git commit -m "Merge main into dev-[future release] to keep in sync"
 # Step 8
 git push origin merged-main-dev-[future release]
 ```
-
-You may need to fix conflicts manually. If somebody has improved a page on `main`, and at the same time it has been updated in the dev branch for the next release, we may need to figure out how to make those changes work together. If something comes up which isn't obvious, you can always abort the merge and reach out to SIG Docs for help.
-
-When you have completed resolving the differences manually, run `git merge --continue` to complete the merge. Then carry on from step 5.
-
-Submit a PR against upstream `dev-[future release]` from your fork's branch `merged-main-dev-[future release]` by changing the
-`base` to `dev-[future-release]` when creating the PR.
-e.g. [Merge main into future release](https://github.com/kubernetes/website/pull/16225).
-
-⚠️  **Ensure the PR is passing tests on GitHub**.
-
-Perform merge activity on a regular basis to ensure a smooth release. eg: once/week during intial weeks and increase the frequency if required closer to the end of the release cycle. 
-
-Report out the `dev-[future release]` branch health in Release Team meetings and sig-docs meetings. 
-
-### Monitor PRs
-
-Make a query showing all PRs raised against dev-[future release] and monitor that regularly e.g., [1.21 search](https://github.com/kubernetes/website/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aopen+base%3Adev-1.21+label%3Alanguage%2Fen)
-
-### Enforce deadlines
-
-Enforce deadlines the day after. Communicate with SIGs via Slack and email lists to keep everyone up-to-date on status.
-
-### Review PRs
-
-It is the Docs Lead and Shadows' responsibility to ensure the incoming docs meet our standards. Considering SIG Docs has limited capacity, the Release Doc Lead and Shadows should actively engage in reviewing and providing feedback on documentation changes in each of their PRs. It's impossible for us to understand every technical component, so it is important to get a technical LGTM too if you're unsure about technical accuracy.
-
+ 
+Merge conflicts are the most common pain point in branch sync. If a page has been updated on both `main` and the dev branch, you will need to reconcile those changes manually. A few tips:
+ 
+- The dev branch change is almost always an in-progress feature doc - preserve it, and layer in the `main` update on top where they don't conflict.
+- If a conflict is not obvious, abort the merge (`git merge --abort`) and reach out to SIG Docs before re-attempting.
+- After resolving conflicts, run `git merge --continue` and verify the branch builds cleanly before pushing.
+Submit a PR against upstream `dev-[future release]` from your fork's branch `merged-main-dev-[future release]` by changing the `base` to `dev-[future-release]` when creating the PR. Example: [Merge main into future release](https://github.com/kubernetes/website/pull/16225).
+ 
+Report out the `dev-[future release]` branch health in Release Team meetings and sig-docs meetings.
+ 
+### Monitor & Review Doc PRs
+ 
+Make a query showing all PRs raised against `dev-[future release]` and monitor that regularly, e.g. [1.21 search](https://github.com/kubernetes/website/pulls?utf8=%E2%9C%93&q=is%3Apr+is%3Aopen+base%3Adev-1.21+label%3Alanguage%2Fen).
+ 
+It is the Docs Lead and Shadows' responsibility to ensure the incoming docs meet our standards. Considering SIG Docs has limited capacity, the Release Docs Lead and Shadows should actively engage in reviewing and providing feedback on documentation changes in each of their PRs. It's impossible for us to understand every technical component, so it is important to get a technical LGTM too if you're unsure about technical accuracy.
+ 
 Also review each PR for:
-
+ 
 - Check that the PR is in the `[future release]` milestone
 - Check that the KEP / enhancement is likely to land in `[future release]`.
 - Review PR commit histories, and make sure that PR commit histories contain only changes to files. It's especially important to **avoid revert commits**. Encourage developers to rebase any PRs with complicated commit histories.
-- Check that the PR has a technical LGTM.
-- KEP reviewers and approvers can provide a technical review or delegate appropriatley. KEP reviewers and approvers are usually listed in the [kep.yaml e.g.](https://github.com/kubernetes/enhancements/blob/master/keps/sig-architecture/1194-prod-readiness/kep.yaml)
-- If no LGTM, assign `sig/*` labels (listed in the enhancement tracking spreadsheet) to help find technical reviewers.
+- Check that the PRs don't have any `work-in-progress`, `WIP`, or `Draft` commits.
+- Check that the PR has a technical review `/lgtm`.
+- Check that the PR has a docs final approval `/approve`.
+- Check that the milestone for the release has been added. If not, please use the `/milestone` command to apply
+- KEP reviewers and approvers can provide a technical review or delegate appropriately. KEP reviewers and approvers are usually listed in the [kep.yaml](https://github.com/kubernetes/enhancements/blob/master/keps/sig-architecture/1194-prod-readiness/kep.yaml).
+- If no LGTM, assign `sig/*` labels (as listed in the Release Tracking Board or the KEP issue) to help find technical reviewers.
+
 
 #### Style Guide Checklist (High to Low Level)
-
+ 
 The [style guide](https://kubernetes.io/docs/contribute/style/style-guide/) consists of guidelines, not rules.
-
+ 
+> [!Tip]
+> Most PR owners are **not** writers, and many are non-native / secondary English speakers. **Start here:** missing commas or passive voice should **not** block a `/lgtm` if the content is accurate. Focus your review energy on correctness and completeness first. If a style issue really bugs you, make a note and open a follow-up PR rather than blocking the author.
+ 
 - Make sure new docs use the correct page content type.
     - [Concept](https://kubernetes.io/docs/contribute/style/page-content-types/#concept)
     - [Task](https://kubernetes.io/docs/contribute/style/page-content-types/#task)
@@ -733,35 +803,32 @@ The [style guide](https://kubernetes.io/docs/contribute/style/style-guide/) cons
     - [Shortcodes](https://kubernetes.io/docs/contribute/style/style-guide/#shortcodes) for notes, cautions, and warnings
 - Make sure the content makes sense
     - Check spelling
-    - Consider the Style Guide's [best practices](https://kubernetes.io/docs/contribute/style/style-guide/#content-best-practices) and [patterns to avoid](https://kubernetes.io/docs/contribute/style/style-guide/#patterns-to-avoid)
-
-> Note: Most PR owners are **not** writers, and many are non-native / secondary English speakers. Missing commas or passive voice should **not** block a /lgtm if the content is accurate. If something really bugs you, make a note and open a PR to fix it later.
-
-Once the above is met, comment the following on the PR:
-
-```
-/lgtm
-/approve
-```
-
-(you might already have /lgtm from the technical review stage; another /lgtm is fine if the prerequisites are already met).
+    - Strictly adhere to the Style Guide's [best practices](https://kubernetes.io/docs/contribute/style/style-guide/#content-best-practices) and [patterns to avoid](https://kubernetes.io/docs/contribute/style/style-guide/#patterns-to-avoid)
 
 If you need help reviewing PRs, ask SIG Docs (#sig-docs channel on Slack) for help. The weekly [PR Wrangler](https://github.com/kubernetes/website/wiki/PR-Wranglers) is your best resource.
-
-> Note: PR's against the dev branch can merged at any time assuming they meet the criteria. Be careful though that you don't merge a feature that might be pushed out to the next release. If that happens, you can revert - but it's better to avoid the mess all together.
+ 
+> [!Note]
+> PRs against the dev branch can be merged at any time assuming they meet the criteria. Be careful though that you don't merge a feature that might be pushed out to the next release. If that happens, you can revert - but it's better to avoid the mess altogether.
 >
-> You can add /hold to mark a PR that should not merge until the matching code changes are already in.
-
+> You can add `/hold` to mark a PR that should not merge until the matching code changes are already in.
+ 
 ### Nominate a Docs Lead for the Next Release
+ 
+During Code Freeze, pick a successor who has demonstrated the ability and understanding of the process.
+ 
+> [!Tip]
+> Usually this is a Docs Lead Shadow that has been on the team for 2 releases with a desire to continue with SIG Docs.
+ 
+When evaluating candidates, consider:
+- Consistency in completing assigned tasks (release notes rotation, branch sync PRs, KEP outreach).
+- Quality and depth of PR reviews - not just volume.
+- Proactiveness: did they flag problems, unblock others, or go beyond their assigned scope?
+- Engagement with the broader SIG Docs and SIG Release communities beyond the release cycle.
 
-⚠️ During Code Freeze, pick a successor who has demonstrated the ability and understanding of the process.
-
-**Usually this is a Docs Lead Shadow that has been on the team for 2 releases with a desire to continue with the SIG Docs.**
-
-- Reach out to the person you have in mind and confirm they are able to commit the time and effort for a successful release.
-- Once confirmed, inform the Release Team and the SIG Docs Team.
-
-If no suitable candidates are available, you may choose to lead again or nominate someone outside of the current release team (e.g: a recent Docs Lead).
+Once you have a candidate:
+- Reach out to the shadow(s) privately to confirm if they are interested and they are able to commit the time and effort for a successful release.
+- Reach out to the Subproject Lead(s) and the Release Lead in Slack group DM for further discussion.
+- If no suitable candidates are available, you may choose to lead again or nominate someone outside of the current release team. Please discuss with the Subproject Lead(s) and the Release Lead for the same.
 
 ## Late-Middle Steps (Weeks 7-8) - Sync with Comms team on the release blog post
 

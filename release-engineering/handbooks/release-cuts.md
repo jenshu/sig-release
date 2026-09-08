@@ -71,7 +71,7 @@ You must be added to the `milestone-maintainers` team in [k/org teams.yaml](http
 
 In order to send the [release announcement emails](#9-notify-public-dev-google-group-mailinglist), you must have permissions to send email to both the [kubernetes-dev](https://groups.google.com/a/kubernetes.io/g/dev) and [kubernetes-announce](https://groups.google.com/g/kubernetes-announce) groups.
 - Add yourself to both groups
-- Ask a current moderator for each group to whitelist your email address so your first email doesn't get stuck in the moderation queue. After that, any emails you send should go through without moderation. See [mailing list permissions](./release-manager.md#mailing-list-permissions) or reach out to `@release-managers` in the `#release-management` Slack channel.
+- Ask a current moderator for each group to allowlist your email address so your first email doesn't get stuck in the moderation queue. After that, any emails you send should go through without moderation. See [mailing list permissions](./release-manager.md#mailing-list-permissions) or reach out to `@release-managers` in the `#release-management` Slack channel.
 
 ### Green Release Signal (pre-releases only)
 
@@ -355,10 +355,19 @@ At this point you should start updating the Slack ([thread](#Create-a-thread-on-
 ```
 # take the output of the previous command from the logs and run the command
 # It should look like this:
-krel release --type=alpha|beta|rc|official --branch=release-1.xx --build-version=v1.xx.yy-alpha|beta|rc-z+<some-hash>
+krel release --type=alpha|beta|rc|official --branch=release-1.xx --build-version=v1.xx.yy-alpha|beta|rc.z+<some-hash>
 ```
 
-If you are releasing an `alpha.1` you will have a command output that has a `BUILDVERSION` parameter value containing `alpha.0`, same goes for `alpha.2` having `alpha.1` and so on. This is expected, you can proceed with executing the krel release command.
+The `--build-version` value can be found by looking for the `BUILDVERSION` parameter value from the command output. This version will contain the previously released version as a prefix. For example:
+
+| Release cut version | BUILDVERSION format |
+| -------- | -------- |
+| `v1.37.0-alpha.1` | `v1.37.0-alpha.0+<hash>` |
+| `v1.37.0-alpha.2` | `v1.37.0-alpha.1+<hash>` |
+| `v1.37.0-beta.0` | `v1.37.0-alpha.3+<hash>` |
+| `v1.37.0-rc.0` | `v1.37.0-beta.0+<hash>` |
+| `v1.37.0` | `v1.37.0-rc.1+<hash>` |
+| `v1.37.1` | `v1.37.0+<hash>` |
 
 The mock release generally takes about **10 minutes**.
 
@@ -451,7 +460,7 @@ Remember to update the Slack ([thread](#Create-a-thread-on-release-management)) 
 You should have copied the nomock release command output from the nomock stage previously run, now you can execute the release command as follows:
 
 ```
-krel release --nomock --type=alpha|beta|rc|official --branch=release-1.xx --build-version=v1.xx.yy-alpha|beta|rc-z+<some-hash>
+krel release --nomock --type=alpha|beta|rc|official --branch=release-1.xx --build-version=v1.xx.yy-alpha|beta|rc.z+<some-hash>
 ```
 
 > [!NOTE]
